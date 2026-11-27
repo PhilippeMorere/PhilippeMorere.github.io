@@ -1,992 +1,270 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width initial-scale=1" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5QV2D3TV');</script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Materialize - Compiled and minified CSS-->
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" />
-  <!-- Font Awesome Icon - CSS-->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-  <!-- Custom Styles-->
-  <link rel="stylesheet" href="/assets/css/style.css" />
-  <title>Philippe Morere | Data scientist and Reinforcement Learning specialist</title>
-
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126939217-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-126939217-2');
-  </script>
-
-  <!-- Open Graph-->
-  <meta property="og:locale" content="en_US" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Philippe Morere | Data scientist and Reinforcement Learning specialist" />
-  <meta property="og:description" content="Data scientist and Reinforcement Learning specialist" />
-  <meta property="og:url" content="https://philippemorere.github.io/" />
-  <meta property="og:site_name" content="Philippe Morere | Data scientist and Reinforcement Learning specialist" />
-  <meta property="article:publisher" content="https://philippemorere.github.io/" />
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@varad_bhogayata" />
-  <meta name="twitter:title" content="Coder | Technofreak | Explorer | Minimalist | Humane" />
-  <meta name="twitter:description" content="Software Developer" />
-  <meta name="twitter:url" content="https://twitter.com/varad_bhogayata" />
-  <meta name="author" content="Philippe Morere" />
-
-  <meta name="description" content="Software Developer with a passion for backend development and artificial intelligence." />
-  <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicon/apple-icon-57x57.png" />
-  <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicon/apple-icon-60x60.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-icon-72x72.png" />
-  <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicon/apple-icon-76x76.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicon/apple-icon-120x120.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-icon-144x144.png" />
-  <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicon/apple-icon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-icon-180x180.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon/android-icon-192x192.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon/favicon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png" />
-  <link rel="manifest" href="/assets/img/favicon/manifest.json" />
-  <meta name="msapplication-TileColor" content="#ffffff" />
-  <meta name="msapplication-TileImage" content="/assets/img/favicon/ms-icon-144x144.png" />
-  <meta name="theme-color" content="#ffffff" />
-  <meta name="robots" content="index, follow" />
-  <!-- Google Site Verification for indexing -->
-  <meta name="google-site-verification" content="_qxK8tePiU2fhnwlwnJ7pkDFnj1k2EiKq_cYGy1Cb84" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Philippe Morere — Chief Data Scientist, Machine Learning PhD</title>
+  <meta name="description" content="Philippe Morere — Chief Data Scientist and Tech Lead with a PhD in machine learning (University of Sydney). Reinforcement learning, planning, MLOps and production ML.">
+  <meta name="author" content="Philippe Morere">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Philippe Morere — Chief Data Scientist, Machine Learning PhD">
+  <meta property="og:description" content="Chief Data Scientist / Tech Lead with a PhD in statistical learning and optimisation. Reinforcement learning, planning, production ML.">
+  <meta property="og:url" content="https://philippemorere.github.io/">
+  <meta property="og:image" content="https://philippemorere.github.io/assets/img/philippe.jpg">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%231f3b57'/><text x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23f4efe6' text-anchor='middle'>PM</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QV2D3TV"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <header class="topbar">
+    <a class="brand" href="#top">Philippe Morere</a>
+    <nav>
+      <a href="#experience">Experience</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  
-  <!-- Navigation Menu-->
-  <!-- Nav class 1 -->
-  <nav class="hide-on-small-only">
-    <ul class="side-nav fixed section table-of-contents">
+  <main id="top">
+    <!-- Intro -->
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Chief Data Scientist · Tech Lead · PhD in Machine Learning</p>
+        <h1>I build machine learning that makes it to production.</h1>
+        <p class="lede">
+          I'm Chief Data Scientist and Tech Lead at sense4data and OAK, where I lead data science teams and ship
+          production-grade ML, from NLP and LLMs to computer vision and MLOps. My background is a PhD in statistical learning and optimisation from the University of Sydney
+          (reinforcement learning, planning, robotics) and a software engineering degree, so I'm as comfortable
+          with the maths as with the code and the MLOps pipeline that ships it.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="/assets/resume/Morere Philippe - resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+          <a class="btn" href="https://www.linkedin.com/in/philippemorere" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/PhilippeMorere" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://scholar.google.com.au/citations?user=x0J0L2EAAAAJ&amp;hl=en" target="_blank" rel="noopener">Publications</a>
+        </div>
+      </div>
+      <img class="portrait" src="/assets/img/philippe.jpg" alt="Portrait of Philippe Morere" width="320" height="290">
+    </section>
 
-      <li class="logo">
-        <a id="logo-container" aria-label="Navigate to the beginning of the page" href="#intro"
-          class="brand-logo grey-blue-text">
-          <img src="/assets/img/passport-new.jpg" class="circle img-responsive profile-pic" alt="avatar">
+    <section class="facts" aria-label="Highlights">
+      <div><strong>6+</strong><span>data scientists managed &amp; mentored</span></div>
+      <div><strong>10+</strong><span>papers at CoRL, AISTATS, ICRA, IROS, RA-L</span></div>
+      <div><strong>6</strong><span>countries worked or studied in, across 4 continents</span></div>
+      <div><strong>FR · EN · ES</strong><span>native, bilingual, intermediate</span></div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="block">
+      <h2>Experience</h2>
+      <ol class="timeline">
+        <li>
+          <div class="when">Jun 2020 – present<span class="where">Bordeaux, France</span></div>
+          <div class="what">
+            <h3>Chief Data Scientist, Tech Lead <span class="org">sense4data</span></h3>
+            <p>Data science R&amp;D consulting and lab. Projects in banking security (anomaly detection), job recommendation
+              (NLP), aerial surveillance (computer vision) and sports betting (tabular ML with an advanced MLOps pipeline).</p>
+            <ul>
+              <li>Managing and mentoring a team of 6+ data scientists (agile, kanban, self-organised).</li>
+              <li>Client-facing and end-to-end, with a focus on customer satisfaction.</li>
+              <li>Working closely with data engineers on architecture and design choices.</li>
+              <li>R&amp;D with a strong focus on the transition to production.</li>
+              <li>Teaching and talks (Wild Code School, datacraft); team building.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="when">Mar 2023 – present</div>
+          <div class="what">
+            <h3>Chief Data Scientist <span class="org">OAK</span></h3>
+            <p>An HR and talent-management platform built on AI: NLP, LLMs, embeddings, LangChain, deep learning,
+              computer vision, scraping and big data.</p>
+            <ul>
+              <li>Leading the R&amp;D team (4 data scientists).</li>
+              <li>Product strategy and product management.</li>
+              <li>Architecture, and integration between data science and development.</li>
+              <li>Customer-focused feature development.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="when">Jan 2019 – Jun 2020<span class="where">Sydney, Australia</span></div>
+          <div class="what">
+            <h3>Postdoctoral Researcher &amp; Research Fellow <span class="org">University of Sydney</span></h3>
+            <p>Research on automated decision-making (planning, optimisation, reinforcement learning), the theory of
+              machine learning methods, and applications to drones, robotic manipulators and ground robots.</p>
+            <ul>
+              <li>For Origin Energy: modelling and data-fusion methods for geological phenomena (3D + images), and automated decision-making to assist experts.</li>
+              <li>Direct communication with the client, adapting to evolving requirements.</li>
+              <li>Supervised PhD students, providing motivation and technical guidance.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="when">Jan 2018 – Jun 2019<span class="where">Sydney, Australia</span></div>
+          <div class="what">
+            <h3>Research Fellow <span class="org">University of Sydney · Defence Science and Technology</span></h3>
+            <p>R&amp;D of reinforcement learning techniques for electronic warfare. Agile delivery with regular
+              re-evaluation of objectives; the client was satisfied with the deliverable and renewed the contract.</p>
+          </div>
+        </li>
+        <li>
+          <div class="when">Mar 2017 – Dec 2018</div>
+          <div class="what">
+            <h3>Academic Tutor &amp; Teaching Assistant <span class="org">University of Sydney</span></h3>
+            <p>Several machine learning and data science courses at Master's and Bachelor's level: group teaching,
+              individual consultations, exam and project design and marking, and curriculum revisions for later years.</p>
+          </div>
+        </li>
+        <li>
+          <div class="when">Feb 2015 – May 2015<span class="where">Providence, USA</span></div>
+          <div class="what">
+            <h3>Research Intern <span class="org">Brown University</span></h3>
+            <p>Reinforcement learning research: deterministic model-based RL, automatic meta-action generation with a
+              logic grammar, and a scaffolding framework for learning on tasks of increasing difficulty. Contributed to
+              the open-source BURLAP library.</p>
+          </div>
+        </li>
+        <li>
+          <div class="when">Jan 2014 – Jun 2015<span class="where">Madrid, Spain</span></div>
+          <div class="what">
+            <h3>Research Engineer <span class="org">IMDEA Networks</span></h3>
+            <p>Built a graph and network computational tool: network-analysis algorithms for big data, machine learning
+              and NLP, and assisted visualisation of social networks.</p>
+          </div>
+        </li>
+        <li>
+          <div class="when">2011 – 2013</div>
+          <div class="what">
+            <h3>Earlier internships</h3>
+            <ul>
+              <li><b>Ritsumeikan University</b>, Kyoto (2013): vision-based indoor navigation for drones, prototyped in Matlab and implemented in VHDL on an FPGA.</li>
+              <li><b>IMDEA Networks</b>, Madrid (2012): topic and polarity detection for Spanish tweets, which led to a publication.</li>
+              <li><b>Pipalia Software House</b>, London (2011): XPages websites and Lotus Domino/Notes applications for customers.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Research -->
+    <section id="research" class="block">
+      <h2>Selected research</h2>
+      <p class="section-intro">My research focused on making agents explore, plan and learn efficiently: Bayesian
+        optimisation, uncertainty-driven exploration in reinforcement learning, and hierarchical planning for robots.</p>
+      <ul class="pubs">
+        <li><span class="year">2019</span><span class="title"><a href="https://github.com/PhilippeMorere/learning-to-plan-hierarchically" target="_blank" rel="noopener">Learning to Plan Hierarchically From Curriculum</a></span><span class="venue">P. Morere, L. Ott, F. Ramos — IEEE RA-L</span></li>
+        <li><span class="year">2018</span><span class="title"><a href="https://github.com/PhilippeMorere/EMU-Q" target="_blank" rel="noopener">Bayesian RL for Goal-Only Rewards</a></span><span class="venue">P. Morere, F. Ramos — CoRL 2018</span></li>
+        <li><span class="year">2017</span><span class="title">Sequential Bayesian Optimization as a POMDP for Environment Monitoring with UAVs</span><span class="venue">P. Morere, R. Marchant, F. Ramos — ICRA 2017</span></li>
+      </ul>
+      <p class="also"><a href="https://scholar.google.com.au/citations?user=x0J0L2EAAAAJ&amp;hl=en" target="_blank" rel="noopener">All publications on Google Scholar →</a></p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="block">
+      <h2>Projects</h2>
+      <div class="cards">
+        <a class="card feature" href="/stonks/">
+          <span class="tag">Play it · Browser game</span>
+          <h3>Super Stonks</h3>
+          <p>A stock-market trading game running in the browser, with a market simulator compiled to WebAssembly.
+            Hire analysts, read earnings guidance and volatility bands, and try to beat the Street.</p>
+          <span class="more">philippemorere.github.io/stonks →</span>
         </a>
-      </li>
+        <a class="card" href="https://github.com/PhilippeMorere/lego-mindstorm" target="_blank" rel="noopener">
+          <span class="tag">Python · Blockly</span>
+          <h3>NXT Blocks</h3>
+          <p>Drag-and-drop programming for a LEGO Mindstorms NXT 2.0 on Apple Silicon Macs, replacing LEGO's
+            32-bit software with Blockly, a native NXC compiler and nxt-python.</p>
+        </a>
+        <a class="card" href="https://github.com/PhilippeMorere/EMU-Q" target="_blank" rel="noopener">
+          <span class="tag">Python · Research code</span>
+          <h3>EMU-Q</h3>
+          <p>Exploring by Minimizing Uncertainty of Q values, from “Bayesian RL for Goal-Only Rewards” (CoRL 2018).</p>
+        </a>
+        <a class="card" href="https://github.com/PhilippeMorere/learning-to-plan-hierarchically" target="_blank" rel="noopener">
+          <span class="tag">Python · Research code</span>
+          <h3>Learning to Plan Hierarchically</h3>
+          <p>Code for the RA-L paper “Learning to Plan Hierarchically From Curriculum”.</p>
+        </a>
+        <a class="card" href="https://github.com/PhilippeMorere/RLTrader" target="_blank" rel="noopener">
+          <span class="tag">Python · RL</span>
+          <h3>RLTrader</h3>
+          <p>An agent that learns to trade using reinforcement learning methods.</p>
+        </a>
+        <a class="card" href="https://github.com/PhilippeMorere/BasicReinforcementLearning" target="_blank" rel="noopener">
+          <span class="tag">Python · Tutorial</span>
+          <h3>Basic Reinforcement Learning</h3>
+          <p>A simple, readable Q-learning example — my most-starred repository.</p>
+        </a>
+        <a class="card" href="https://github.com/PhilippeMorere/PacmanRL" target="_blank" rel="noopener">
+          <span class="tag">Python · RL</span>
+          <h3>PacmanRL</h3>
+          <p>Reinforcement learning algorithms learning to play Pacman.</p>
+        </a>
+        <a class="card" href="https://github.com/PhilippeMorere/divvy" target="_blank" rel="noopener">
+          <span class="tag">Python · Tooling</span>
+          <h3>divvy</h3>
+          <p>A small tool for distributing experiments across multiple CPUs.</p>
+        </a>
+      </div>
+      <p class="also">Older projects: a <a href="https://github.com/PhilippeMorere/Bomberman" target="_blank" rel="noopener">multiplayer Bomberman-like game</a> in C/SDL,
+        <a href="https://github.com/PhilippeMorere/Froggy" target="_blank" rel="noopener">Froggy</a>, an Android game,
+        <a href="https://github.com/PhilippeMorere/RLinBURLAP" target="_blank" rel="noopener">RL algorithms in BURLAP</a> and
+        a <a href="https://github.com/PhilippeMorere/SimpleNeuralNetwork" target="_blank" rel="noopener">neural network from scratch</a> in Java.</p>
+    </section>
 
-      <li class="bold">
-        <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-person small"></i><span>About</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Experience section" href="#experience"
-          class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-trending-up small"></i><span>Experience</span></a>
-      </li>
-
-      <li class="bold">
-        <!-- mdi-av-web small
-             mdi-av-my-library-books small-->
-        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
-            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
-      </li>
-
-      <li class="bold">
-        <!--
-        ICONS:
-        mdi-action-assessment
-        mdi-social-poll
-        mdi-av-equalizer
-        -->
-        <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-assessment small"></i><span>Skills</span></a>
-      </li>
-      
-      <li class="bold">
-        <!--
-        ICONS:
-        -->
-        <a aria-label="Navigate to the Education section" href="#education" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-school small"></i><span>Education</span></a>
-      </li>
-
-      <li class="bold">
-        <!-- 
-        1. mdi-communication-contacts
-        2. mdi-content-mail
-        3. mdi-communication-email
-        -->
-        <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
-            class="mdi-content-mail small"></i><span>Contact</span></a>
-      </li>
-
-      <li class="bold">
-        <!--
-        ICONS:
-        1. mdi-action-description
-        2. mdi-file-folder
-        3. mdi-file-folder-open
-        4. mdi-file-attachment
-        5. mdi-file-folder-shared
-        -->
-        <a aria-label="Open Philippe's resume in a new tab" href="https://philippemorere.github.io/assets/resume/Morere Philippe - resume.pdf" target="_blank"
-        class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>  
-      </li>
-    </ul>
-  </nav>
-
-  <!-- Nav class 2 -->
-  <nav class="hide-on-large only trigger z-depth-1">
-    <a aria-label="Toggle visibility of the mobile navbar" href="#" data-activates="slide-out"
-      class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-    <div class="name-title">
-      <a id="name" aria-label="Navigate to the beginning of the page" href="#" class="teal-text">Philippe Morere</a><span class="black-text">Data scientist and Reinforcement learning specialist</span>
-    </div>
-  </nav>
-
-  <!-- Nav class 3 -->
-  <nav class="hide-on-large only">
-    <ul id="slide-out" class="side-nav">
-      <li class="bold">
-        <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-person small"></i><span>About</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Experience section" href="#experience"
-          class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-trending-up small"></i><span>Experience</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
-            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-assessment small"></i><span>Skills</span></a>
-      </li>
-
-      <li class="bold">
-        <a aria-label="Navigate to the Education section" href="#education" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-school small"></i><span>Education</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
-            class="mdi-content-mail small"></i><span>Contact</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Open Philippe's Resume in a new tab"
-          href="https://philippemorere.github.io/assets/resume/Morere Philippe - resume.pdf" target="_blank"
-          class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>
-      </li>
-    </ul>
-  </nav>
-
-  <!-- Main Content-->
-  <main>
-    <!-- First Section: Heading lines and image -->
-    <section id="intro" class="section scrollspy full-height">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="col-md-9">
-          <div class="content section-padding valign" style="margin-left: 10%; margin-top: 50px;">
-            <div class="caption">
-              <h2>Hi, I'm <span class="teal">Philippe Morere.</span></h2>
-              <h5 style="color:#fff">A <span class="typing" style="font-weight: 300; color:#004d40"></span></h5>
-              <!-- <h5 style="color:#00796b">A <span class="typing" style="font-weight: 300; color:#fff"></span></h5> -->
-              <h5>Self-driven, quick starter, passionate programmer with a curious mind who enjoys solving a complex and challenging real-world problems.</h5>
-            </div>
-            <div class="social">
-              <a href="http://linkedin.com/in/philippemorere" target="_blank">
-                <button class="icon-btn linkedin">
-                  <i class="fa fa-linkedin"></i>
-                </button>
-              </a>
-              <a href="https://github.com/PhilippeMorere/" target="_blank">
-                <button class="icon-btn github">
-                  <i class="fa fa-github"></i>
-                </button>
-              </a>
-                  </span>
-              </a> -->
-            </div>
-            <div class='buttons'>
-              <a href="#about" class="readme">Read More</a>
-              <a href="#contact" class="contactme">Contact Me</a>
-            </div>
-          </div>
+    <!-- Education + skills -->
+    <section id="education" class="block two-col">
+      <div>
+        <h2>Education</h2>
+        <div class="edu">
+          <h3>PhD, Computer Science <span class="org">University of Sydney · 2015 – 2019</span></h3>
+          <p>Thesis: <em>Bayesian Optimisation for Planning and Reinforcement Learning</em>. Machine learning,
+            reinforcement learning, optimisation, planning and robotics. NICTA scholarship.</p>
         </div>
+        <div class="edu">
+          <h3>Diplôme d'ingénieur (MEng), Telecommunications &amp; Software Engineering <span class="org">ENSEIRB-MATMECA, Bordeaux · 2011 – 2013</span></h3>
+          <p>Graduated 1st in class. Winner of the Thales Management Prize, leading a 7-person team for 6 months on adaptive video streaming.</p>
+        </div>
+        <div class="edu">
+          <h3>Master's, Computer Science <span class="org">Université de Bordeaux · 2012 – 2013</span></h3>
+        </div>
+        <div class="edu">
+          <h3>Engineering Summer Program, Robotics <span class="org">Tohoku University, Japan · 2013</span></h3>
+        </div>
+      </div>
+      <div>
+        <h2>Skills</h2>
+        <dl class="skills">
+          <dt>Machine learning</dt><dd>Reinforcement learning, Bayesian optimisation, statistics, NLP &amp; LLMs, embeddings, computer vision, anomaly detection, robotics</dd>
+          <dt>Languages</dt><dd>Python, C++, Java, Linux / shell</dd>
+          <dt>Libraries</dt><dd>PyTorch, scikit-learn, LangChain, pandas, NumPy, OpenCV, pytest</dd>
+          <dt>Infra &amp; MLOps</dt><dd>Docker, Argo, AWS, PostgreSQL, MongoDB</dd>
+          <dt>Also</dt><dd>Pen-testing &amp; reverse engineering, scraping</dd>
+          <dt>Spoken</dt><dd>French (native), English (bilingual, IELTS 8.0), Spanish (intermediate)</dd>
+        </dl>
       </div>
     </section>
 
-    <!-- Second Section: About -->
-    <section id="about" class="section scrollspy">
-      <h3 class="page-title white-text teal">About</h3>
-      <div class="container flow-text">
-        <!-- <blockquote>
-          <h2>
-            A Software Developer with a passion for Backend Development and Artificial Intelligence.
-
-          </h2>
-        </blockquote> -->        
-        <p>
-          I am a Computer Science Grad Student at Arizona State University. I enjoy problem-solving and coding. Always strive to bring 100% to the work I do.
-
-          I have worked on technologies like Python, Django, Flask, MySQL, PostgreSQL, MongoDB, HTML5, CSS, Java, C++ during my bachelor's. I have 19 months of professional work experience which helped me strengthen my experience in Python, Flask, and Django.
-
-          I am passionate about developing complex applications that solve real-world problems impacting millions of users.
-        </p>
-        <p>
-          <ul>
-            <li><b>Languages:</b> Python, Java, JavaScript, C, C++, HTML/CSS, Bash</li>
-            <li><b>Databases:</b> MySQL, PostgreSQL, MongoDB</li>
-            <li><b>Libraries:</b> NumPy, Pandas, OpenCV</li>
-            <li><b>Frameworks:</b> Flask, Django, Node.js, Keras, TensorFlow, PyTorch, Bootstrap, Apache Beam</li>
-            <li><b>Tools & Technologies:</b> Git, Docker, AWS, GCP, Heroku, JIRA</li>
-          </ul>
-          
-        </p>
-          
-        <!-- <p>
-          
-          Detail-oriented Software Developer with professional experience in Backend Development, Machine Learning, Computer Vision. I am adept in Python, Django, Flask, SQL, Machine Learning, Computer Vision.           
-        </p> -->
-        <p>
-          Looking for an opportunity to work in a challenging position combining my skills in Software Engineering, which provides professional development, interesting experiences and personal growth.
-        </p>
-        <!-- <p>
-          Another Paragraph
-        </p>  -->
-        <!-- <p>
-        <strong>Current Focus</strong>:&nbsp;<a aria-label="Navigate to the Inclusive Design Patterns homepage"
-          href="https://www.smashingmagazine.com/inclusive-design-patterns/">Accessibility</a>&nbsp;//&nbsp;<a
-          aria-label="Navigate to the Full Stack React homepage"
-          href="https://www.fullstackreact.com/">React</a>&nbsp;//&nbsp;<a
-          aria-label='Navigate to the article "Scalable CSS"'
-          href="https://mrmrs.github.io/writing/2016/03/24/scalable-css/">Design Systems</a>
-        </p> -->
-      </div>
-    </section>
-
-
-    <!-- Third Section: Experience -->
-    <section id="experience" class="section scrollspy">
-      <h3 class="page-title white-text teal">Experience</h3>
-      <div class="container">
-
-        <!-- Latest Experience -->
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <div class="col s12 m2">
-                <a href="https://www.zhiffy.com/" target="_blank"><img alt="Zhiffy logo"
-                    src="/assets/img/exp-zhiffy-logo-1.webp" class="responsive-img center-block" /></a>
-              </div>
-              <!-- <div class="col s12 m10"> -->
-              <div class="col s12 m10">
-                <p>
-                  <span class="card-title"><a href="https://www.zhiffy.com/" target="_blank"
-                      class="teal-text hoverline">Zhiffy</a></span>
-                </p>
-              </div>
-            </div>
-            <div class="role brown-text text-darken-2">Software Engineer</div>
-            <ul>
-              <li>
-                Developed and managed the backend of an e-commerce platform using Flask, MongoDB, and AWS.
-              </li>
-              <li>
-                Worked on three web applications targeting customers, selling vendors, and admin users; built 50+ RESTful APIs with functionalities
-such as login/sign up, view a product, add a product to cart, checkout the order, etc.
-              </li>
-              <li>Improved the response time by 20% by refactoring the codebase and changing database design and queries.</li>
-              <li>Added a bulk upload feature which reduced the manual work of adding products into a database.</li>
-              <li>
-                <b>Tools:</b> Python, Flask, MongoDB
-              </li>
-            </ul>
-          </div>
-          <div class="card-action">
-            <span>July 2020 - Nov 2020 | Hyderabad, India</span>
-          </div>
-        </div>
-
-        
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <div class="col s12 m2">
-                <a href="https://www.meditab.com" target="_blank"><img alt="Meditab logo"
-                    src="/assets/img/exp-meditab-logo-500x500.jpg" class="responsive-img center-block" /></a>
-              </div>
-              <!-- <div class="col s12 m10"> -->
-              <div class="col s12 m10">
-                <p>
-                  <span class="card-title"><a href="http://meditab.com" target="_blank"
-                      class="teal-text hoverline">Meditab</a></span>
-                </p>
-              </div>
-            </div>
-            <div class="role brown-text text-darken-2">Programmer Analyst</div>
-            <ul>
-              <li>
-                Customized a tree-based optimization algorithm that separates drugs into distinct groups to maximize the concurrent execution of drug
-dispenser robots; improved an optimization algorithm that reduced the cycle-time of the automation process by 25%.
-              </li>
-              <li>
-                Devised a customized recursion algorithm to extend the functionality of the current environment to a multi-robot and multi-system
-environment
-              </li>
-              <li>
-                Built a modular video analytics app using Flask, OpenCV that tracks the location of each human in a multi-camera environment;
-utilized perspective transformation, object detection, and object tracking to find the location of a human.
-              </li>
-              <li>Increased the speed of the video analytics app by 20% by using a customized YOLOv3 algorithm to perform object detection and
-                DeepSORT algorithm for multi-object tracking.</li>
-              <li>
-                <b>Tools:</b> Python, Flask, OpenCV, Keras, Tensorflow, PyTorch
-              </li>
-            </ul>
-          </div>
-          <div class="card-action">
-            <span>Dec 2018 - July 2019 | Ahmedabad, India</span>
-          </div>
-        </div>
-
-        <!-- Experience 2 -->
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <div class="col s12 m2">
-                <img alt="Mtag logo" src="/assets/img/exp-mtag-logo-250x250.jpg" class="responsive-img center-block" />
-
-              </div>
-
-              <!-- <div class="col s12 m10"> -->
-              <div class="col s12 m10">
-                <p>
-                  <span class="card-title"><a href="#experience" class="teal-text hoverline">Mtag
-                      Innovations</a></span>
-                </p>
-              </div>
-            </div>
-            <div class="role brown-text text-darken-2">Software Developer</div>
-            <ul>
-              <li>
-                Programmed a cloud-based web app using Flask and JavaScript aimed at storing, visualizing, and tracking temperature and humidity
-of each drug container to estimate the degradation of the drug.
-              </li>
-              <li>
-                Created an alert system to send notifications and emails when the parameters exceed the threshold.
-              </li>
-              <li>
-                <b>Tools:</b> Python, Flask, JavaScript
-              </li>
-            </ul>
-          </div>
-          <div class="card-action">
-            <span>July 2018 - Nov 2018 | Ahmedabad, India</span>
-          </div>
-        </div>
-
-        <!-- Experience 3 -->
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <div class="col s12 m2">
-                <a href="https://www.cignex.com" target="_blank"><img alt="Cignex logo"
-                    src="/assets/img/exp-cignex-logo.png" class="responsive-img center-block" /></a>
-              </div>
-              <div class="col s12 m10">
-                <p>
-                  <span class="card-title"><a href="https://www.cignex.com" target="_blank"
-                      class="teal-text hoverline">CIGNEX
-                      Datamatics </a></span>
-                </p>
-              </div>
-            </div>
-            <div class="role brown-text text-darken-2">Project Trainee</div>
-            <ul>
-              <li>
-                Designed a library management system for a local library, where we undertook activities like requirement
-                elicitation, preparing Data Flow
-                and Entity-Relationship diagrams.
-              </li>
-              <li>
-                Delivered a solution for a POC involving Automatic Financial Document Classifier using Natural Language
-                Processing and Support Vector
-                Machines with 96% accuracy on the company’s data.
-              </li>
-              <li>
-                <b>Tools:</b> Python, Scikit-learn, NLTK
-              </li>
-            </ul>
-          </div>
-          <div class="card-action">
-            <span>June 2017 - July 2017 | Ahmedabad, India</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Fourth Section: Projects -->
-    <section id="projects" class="section scrollspy">
-      <h3 class="page-title white-text teal">Projects</h3>
-      <div class="container">
-        <div class="row">
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="music streaming app" src="/assets/img/project-music-player.png" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Music Player Web-App<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  A music streaming web app based on Django
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> Django, HTML, CSS, Bootstrap, SQLite, AWS S3, Heroku</li>
-                  <li>Register/login to the web app(with OAuth-based Google Sign-In).</li>
-                  <li>Search and filter songs based on language and singer.</li>
-                  <li>Create multiple playlists and add/remove songs to/from playlist.</li>
-                  <li>Scroll through recently played/viewed songs.</li>
-
-
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit " href="https://galvanic-music.herokuapp.com/" target="_blank" data-position="top"
-                    data-tooltip="View Online"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-external-link"></i></a>
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/varadbhogayata/music-player"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="quiz app" src="/assets/img/project-quizup-logo-1.png" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Quiz Web-App<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  A quiz playing web app based on Django
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> Django, HTML, CSS, Bootstrap, SQLite, Heroku</li>
-                  <li>Register/login to the web app(with OAuth-based Google Sign-In).</li>
-                  <li>Play Quiz and see the leaderboard</li>
-
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit " href="https://quiz-up-app.herokuapp.com/" target="_blank" data-position="top"
-                    data-tooltip="View Online"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-external-link"></i></a>
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/varadbhogayata/QuizUp"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Flask Project -->
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Screenshot of web app" src="/assets/img/project-blog-logo.jpg"
-                style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Blog Web-App<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  A simple and extensible blog web-app based on Flask.
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title teal-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> HTML, CSS, Bootstrap, Flask, SQLAlchemy, Postgresql, Python</li>
-                  <li>Users can view posts and contact the admin via Contact Page.</li>
-                  <li>Admin can Add, Delete, Update posts.</li>
-
-
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit Blog website" href="https://flask-heroku-blog.herokuapp.com/" target="_blank" data-position="top"
-                    data-tooltip="View Online"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-external-link"></i></a>
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/varadbhogayata/flask-blog"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- VQA -->
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Screenshot of  web app" src="/assets/img/project-aim_bert-bias.png" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Visual Question Answering<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  An attention-based classification model that aims at generating an answer for a given input image.
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title teal-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li>Incorporated Convolution Neural Networks (CNN) for extracting image features and Long Short Term
-                    Memory for extracting question
-                    embeddings.</li>
-                  <li>Tested the model on the COCO dataset, abstract scenes images, and got 69% overall accuracy on the
-                    VQA evaluation metric.</li>
-
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit the GitHub repo for  project"
-                    href="https://github.com/varadbhogayata/visual-question-answering" target="_blank"
-                    data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Video Summarizer -->
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Screenshot of  web app" src="/assets/img/computer-vision-v2-04.png" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Video Summarizer<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  A Seq2Seq model that generates a short summary of the given input video.
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title brown-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li>Incorporated CNN to detect and classify objects in the video frames and Long Short Term Memory for
-                    generating a summary.</li>
-                  <li>Evaluated the model on MSVD (Microsoft Video Description Corpus) dataset; achieved 0.77, 0.71,
-                    0.52 scores respectively on ROGUE,
-                    BLEU, METEOR evaluation metrics.</li>
-
-                </ul>
-                <!-- TODO: UPLOAD THIS PROJECT ON GITHUB -->
-                <div class="card-action">
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/varadbhogayata/"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Image Generator -->
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Screenshot of  web app" src="/assets/img/gan.jpg" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Image Generator<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  An image generator based on the concept of adversarial networks (GANs)
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title brown-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li>Developed system was tested on a human-face database and loss was calculated by comparing the PCAs
-                    of generated and original image.</li>
-                  <li>Calculated difference in PCA was less than 10%, depicting the successful generation of an image by
-                    the generator.</li>
-
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/varadbhogayata/"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Head Counting System -->
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Screenshot of  web app" src="/assets/img/Blog-Images-Forget-Machine-Learning-Humans-Still-Have-a-Lot-to-Learn-Part-II.jpg" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Head Counting System<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  A system that calculates the attendance of the class from a panoramic image of a live classroom.
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title brown-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li>Used Singular Value Decomposition for image compression; applied various image processing
-                    techniques and morphological operations to
-                    detect the number of heads.</li>
-
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit the GitHub repo for  project"
-                    href="https://github.com/varadbhogayata/visual-question-answering" target="_blank"
-                    data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ************* -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Fifth Section: Skills -->
-    <section id="skills" class="section scrollspy">
-      <h3 class="page-title white-text teal">Skills</h3>
-      <div class="container">
-        <!-- Languages and Databases -->
-        <div class="card">
-          <div class="card-content">
-            <h4 class="brown-text light">Languages and Databases</h4>
-            <div class="row text-center">
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/python-logo-1-300x300.jpg" class="responsive-img" />Python
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/html5-300x300.jpg" class="responsive-img" />HTML5
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/css3-300x300.jpg" class="responsive-img" />CSS3
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/mysql-logo-1-300x300.jpg" class="responsive-img" />MySQL
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/postgresql-logo.png" class="responsive-img" />PostgreSQL
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/shell-logo-1-300x300.jpg" class="responsive-img" />Shell Scripting
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-content">
-            <h4 class="brown-text light">Libraries</h4>
-            <div class="row text-center">
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/numpy-logo-1-500x500.jpg" class="responsive-img" />NumPy
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/pandas-logo-2-500x500.jpg" class="responsive-img" />Pandas
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/opencv-logo-1-500x500.jpg" class="responsive-img" />OpenCV
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/sk-learn-logo-1-500x500.jpg" class="responsive-img" />scikit-learn
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/matplotlib-logo-1-500x500.jpg" class="responsive-img" />matplotlib
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Frameworks -->
-        <div class="card">
-          <div class="card-content">
-            <h4 class="brown-text light">Frameworks</h4>
-            <div class="row text-center">
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/django-logo.webp" class="responsive-img" />Django
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/flask-logo.png" class="responsive-img" />Flask
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/bootstrap.png" class="responsive-img" />Bootstrap
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/keras-logo.png" class="responsive-img" />Keras
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/tensorflow-logo-1.png" class="responsive-img" />TensorFlow
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/pytorch-logo.png" class="responsive-img" />PyTorch
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Other -->
-        <div class="card">
-          <div class="card-content">
-            <h4 class="brown-text light">Other</h4>
-            <div class="row text-center">
-
-
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/git.png" class="responsive-img" />Git
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/aws.png" class="responsive-img" />AWS
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/heroku.png" class="responsive-img" />Heroku
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- certifications -->
-        <!-- <div class="card">
-          <div class="card-content">
-            <h4 class="brown-text light">Certificates</h4>
-            <div class="row text-left">
-              <div class="container">
-                <div class="row">
-                  <div class="col s12 m6 l6">
-                    <div class="card">
-                      <div class="card-image">
-                        <img src="/assets/img/mooc-machine-learning-coursera-800x500.jpg">
-                      </div>
-                      <div class="card-content">
-                        <span class="card-title teal-text">Machine Learning (Stanford)</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col s12 m6 l6">
-                    <div class="card">
-                      <div class="card-image">
-                        <img src="/assets/img/mooc-algorithms-stanford-2-800x500.jpg">
-                      </div>
-                      <div class="card-content">
-                        <span class="card-title teal-text">Algorithms (Stanford)</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-      </div>
-    </section>
-
-    <!-- Seventh Section: Education -->
-    <section id="education" class="section scrollspy">
-      <h3 class="page-title white-text teal">Education</h3>
-      <div class="container">
-        <div class="row">
-          <!-- Education -->
-          <div class="col s12 m6 l6">
-            <div class="card">
-              <div class="card-content">
-                <p>
-                  <span class="card-title"><a href="https://www.asu.edu/" target="_blank" class="teal-text hoverline">Arizona State University</a></span>
-                </p>
-                <p class="brown-text">Tempe, USA</p>
-                <p>
-                  <b>Degree: </b>Master of Science in Computer Science      
-                  <br>
-                  <b>CGPA: </b>4.0/4.0
-                </p>
-
-                <ul>
-                  <p>
-                    <b>Relevant Courseworks:</b>
-                  <ul>
-                    <li>Distributed Database Systems</li>
-                    <li>Cloud Computing</li>
-                    <li>Foundations of Algorithms</li>                    
-                  </ul>
-                  </p>
-
-                </ul>
-              </div>
-            </div>
-
-            
-          </div>
-          <div class="col s12 m6 l6">
-            <div class="card">
-              <div class="card-content">
-                <p>
-                  <span class="card-title"><a href="https://ahduni.edu.in/academics/schools-centres/school-of-engineering-and-applied-science/" target="_blank" class="teal-text hoverline">School of Engineering and Applied Science, Ahmedabad
-                      University</a></span>
-                </p>
-                <p class="brown-text">Ahmedabad, India</p>
-                <p>
-                  <b>Degree: </b>Bachelor of Technology in Information and Communication Technology
-                  <br>
-                  <b>CGPA: </b>3.13/4.33
-                </p>
-
-                <ul>
-                  <p>
-                    <b>Relevant Courseworks:</b>
-                  <ul>
-                    <li>Data Structures and Algorithms</li>
-                    <li>Database Management Systems</li>
-                    <li>Operating Systems</li>
-                    <li>Machine Learning</li>
-                    <li>Computer Vision</li>
-                  </ul>
-                  </p>
-
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Eight Section: Contact -->
-    <section id="contact" class="section scrollspy full-height">
-      <h3 class="page-title white-text teal">Contact</h3>
-      <div class="container">
-        <p>
-          <a aria-label="Call Philippe" data-position="top" data-tooltip="Call Philippe"
-            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i class="fa fa-phone"></i><a
-              aria-label="Call Philippe">--</a></a>
-        </p>
-        <p>
-          <a aria-label="Email Philippe" href="mailto:philippe.morere@gmail.com" target="_blank" data-position="top"
-            data-tooltip="Email Philippe" class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-              class="fa fa-envelope"></i><a aria-label="Email Philippe" href="mailto:philippe.morere@gmail.com"
-              class="hoverline">philippe.morere@gmail.com</a></a>
-        </p>
-        <p>
-          <a aria-label="View Philippe on GitHub" href="hhttps://github.com/PhilippeMorere" target="_blank"
-            data-position="top" data-tooltip="View Philippe on GitHub"
-            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i class="fa fa-github"></i><a
-              aria-label="Philippe on Github" href="https://github.com/PhilippeMorere" class="hoverline"
-              target="_blank">github.com/PhilippeMorere</a></a>
-        </p>
-        <p>
-          <a aria-label="View Philippe on LinkedIn" href="https://www.linkedin.com/in/PhilippeMorere" target="_blank"
-            data-position="top" data-tooltip="View Philippe on LinkedIn"
-            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-              class="fa fa-linkedin"></i><a aria-label="Philippe on LinkedIn" href="https://www.linkedin.com/in/PhilippeMorere"
-              class="hoverline" target="_blank">linkedin.com/in/PhilippeMorere</a></a>
-        </p>
-      </div>
+    <!-- Contact -->
+    <section id="contact" class="block contact">
+      <h2>Get in touch</h2>
+      <p>The best way to reach me is by email or LinkedIn.</p>
+      <ul class="contact-list">
+        <li><span>Email</span><a href="mailto:philippe.morere@gmail.com">philippe.morere@gmail.com</a></li>
+        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/philippemorere" target="_blank" rel="noopener">linkedin.com/in/philippemorere</a></li>
+        <li><span>GitHub</span><a href="https://github.com/PhilippeMorere" target="_blank" rel="noopener">github.com/PhilippeMorere</a></li>
+      </ul>
     </section>
   </main>
 
-  <!-- typed.js -->
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script type="text/javascript">
-    var typed = new Typed('.typing',{
-      strings: ["Pythonist", "Developer", "Fast Learner"],
-      loop: true,
-      typeSpeed: 80,
-      backSpeed: 40
-    });
-  </script>
-
-
-  <!-- jQuery-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-  <!-- Materialize - Compiled and minified JavaScript-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
-  <script>
-    // Materialize - Initializers
-    $(document).ready(function () {
-      $(".scrollspy").scrollSpy()
-      // Initialize collapse button
-      $(".button-collapse").sideNav({
-        menuWidth: 190, // Default is 240
-        edge: "left", // Choose the horizontal origin
-        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-      })
-    })
-  </script>
+  <footer class="footer">© <span id="y">2026</span> Philippe Morere</footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
-
 </html>
