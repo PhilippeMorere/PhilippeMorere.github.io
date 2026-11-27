@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css?v=6">
+  <link rel="stylesheet" href="/assets/css/style.css?v=7">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -369,102 +369,139 @@
     }), { rootMargin: '0px 0px -8% 0px' });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // Hero background: chaotic dots get organised into structured lanes (automation)
+    // Hero background: chaotic dots get organised into a processing diagram (automation)
     (() => {
+      const hero = document.querySelector('.hero');
       const c = document.getElementById('field'), x = c.getContext('2d');
       const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const BLUE = [120, 170, 235], ORANGE = [255, 138, 101];
-      let w, h, lanes = [], dots = [], xs, xe, t = 0;
+      const BLUE = [120, 170, 235], ORANGE = [255, 138, 101], GREEN = [61, 220, 151];
+      const TRAIL = 10;
+      let w, h, xs, x1, x2, col1 = [], col2 = [], dots = [], running = false;
 
-      const laneY = (l, px) => l.y + Math.sin(px * l.f + l.p) * l.a;
+      const ease = u => u * u * (3 - 2 * u);
+      const mix = (a, b, k) => a.map((v, i) => Math.round(v + (b[i] - v) * k));
+      const edgeY = (a, b, px) => a.y + (b.y - a.y) * ease((px - x1) / (x2 - x1));
 
       const resize = () => {
-        const r = devicePixelRatio || 1;
+        const r = Math.min(devicePixelRatio || 1, 2);
         w = c.clientWidth; h = c.clientHeight;
         c.width = w * r; c.height = h * r; x.setTransform(r, 0, 0, r, 0, 0);
-        xs = w * (w < 720 ? .2 : .34);   // chaos ends, organising begins
-        xe = w * (w < 720 ? .55 : .62);  // fully organised: processing nodes
-        const n = w < 720 ? 5 : 7;
-        lanes = Array.from({ length: n }, (_, i) => ({
-          y: h * (.12 + .78 * (i + .5) / n),
-          a: h * .012, f: .004 + i * .0004, p: i * 1.3,
-          pulse: 0
-        }));
-        dots = Array.from({ length: Math.round(w / 9) }, () => spawn(true));
-        x.fillStyle = '#0b1524'; x.fillRect(0, 0, w, h);
+        const narrow = w < 720;
+        xs = w * (narrow ? .12 : .28);   // chaos ends, organising begins
+        x1 = w * (narrow ? .5 : .56);    // first column of nodes
+        x2 = w * (narrow ? .8 : .8);     // second (partial) column
+        const n = narrow ? 4 : 6, m = narrow ? 2 : 3;
+        col1 = Array.from({ length: n }, (_, i) => ({ x: x1, y: h * (.14 + .74 * (i + .5) / n), pulse: 0 }));
+        col2 = Array.from({ length: m }, (_, j) => ({ x: x2, y: h * (.26 + .5 * (j + .5) / m), pulse: 0 }));
+        if (!narrow) {
+          // keep the second column clear of the portrait: one node above it, one below
+          const cr = c.getBoundingClientRect(), pr = document.querySelector('.hero-photo').getBoundingClientRect();
+          const sr = document.querySelector('.stats').getBoundingClientRect();
+          x2 = pr.left - cr.left + pr.width / 2;
+          col2 = [
+            { x: x2, y: Math.max(h * .06, pr.top - cr.top - 34), pulse: 0 },
+            { x: x2, y: Math.min(sr.top - cr.top - 24, pr.bottom - cr.top + 34), pulse: 0 }
+          ];
+        }
+        // each first-column node feeds its one or two nearest second-column nodes
+        col1.forEach(a => {
+          const byDist = [...col2].sort((p, q) => Math.abs(p.y - a.y) - Math.abs(q.y - a.y));
+          a.out = byDist.slice(0, Math.abs(byDist[0].y - a.y) < h * .08 ? 1 : 2);
+        });
+        dots = Array.from({ length: Math.max(14, Math.round(w / 32)) }, () => spawn(-Math.random() * w * .6));
+        for (let i = 0; i < 420; i++) dots.forEach(update);   // warm up so every stage is populated
+        draw();
       };
 
-      function spawn(anywhere) {
-        const lane = lanes[Math.floor(Math.random() * lanes.length)];
-        const px = anywhere ? Math.random() * w : -10 - Math.random() * 60;
-        const d = { x: px, y: Math.random() * h, vx: .3 + Math.random() * .5, vy: (Math.random() - .5) * 1.5, lane, picked: false };
-        if (anywhere && px > xs) { d.y = laneY(lane, px); d.picked = true; }
-        return d;
+      function spawn(px = -10 - Math.random() * 80) {
+        return { x: px, y: h * (.08 + Math.random() * .84), vx: 1.1 + Math.random() * .6, vy: (Math.random() - .5) * 2,
+                 phase: 0, y0: 0, a: null, b: null, trail: [] };
       }
 
-      const mix = (a, b, k) => a.map((v, i) => Math.round(v + (b[i] - v) * k));
-
-      const drawStructure = () => {
-        for (const l of lanes) {
-          // faint guide rail from the nodes to the right edge
-          x.strokeStyle = 'rgba(255,138,101,.05)'; x.lineWidth = 1;
-          x.beginPath(); x.moveTo(xe, laneY(l, xe));
-          for (let px = xe; px <= w; px += 24) x.lineTo(px, laneY(l, px));
-          x.stroke();
-          // processing node
-          const ny = laneY(l, xe), glow = l.pulse;
-          x.fillStyle = `rgba(255,138,101,${.25 + glow * .6})`;
-          x.beginPath(); x.roundRect ? x.roundRect(xe - 4, ny - 4, 8, 8, 2) : x.rect(xe - 4, ny - 4, 8, 8); x.fill();
-          if (glow > .05) {
-            x.strokeStyle = `rgba(255,138,101,${glow * .35})`;
-            x.beginPath(); x.arc(xe, ny, 6 + (1 - glow) * 10, 0, 7); x.stroke();
+      const update = d => {
+        if (d.phase === 0) {                       // chaos: random walk drifting right
+          d.vx += (Math.random() - .5) * .5 + (1.5 - d.vx) * .04;
+          d.vy += (Math.random() - .5) * .9; d.vy *= .94;
+          d.x += d.vx; d.y += d.vy;
+          if (d.y < h * .04 || d.y > h * .96) d.vy *= -1;
+          if (d.x >= xs) {                          // start organising towards nearest node
+            d.phase = 1; d.y0 = d.y;
+            d.a = col1.reduce((b, n) => Math.abs(n.y - d.y) < Math.abs(b.y - d.y) ? n : b);
           }
-          l.pulse *= .9;
+        } else if (d.phase === 1) {                 // smooth curve into a first-column node
+          d.x += 2 + 1.4 * ((d.x - xs) / (x1 - xs));
+          const u = Math.min(1, (d.x - xs) / (x1 - xs));
+          d.y = d.y0 + (d.a.y - d.y0) * ease(u);
+          if (u >= 1) { d.a.pulse = 1; d.phase = 2; d.x = x1; d.b = d.a.out[Math.floor(Math.random() * d.a.out.length)]; }
+        } else if (d.phase === 2) {                 // along the diagram edge to the second column
+          d.x += 3.4;
+          d.y = edgeY(d.a, d.b, Math.min(d.x, x2));
+          if (d.x >= x2) { d.b.pulse = 1; d.phase = 3; }
+        } else {                                    // output: straight and steady
+          d.x += 3.4; d.y = d.b.y;
         }
+        d.trail.push(d.x, d.y);
+        if (d.trail.length > TRAIL * 2) d.trail.splice(0, 2);
+        if (d.x > w + 20) Object.assign(d, spawn());
       };
 
-      const step = () => {
-        t++;
-        x.fillStyle = 'rgba(11,21,36,0.10)'; x.fillRect(0, 0, w, h);
-        for (const d of dots) {
-          // k: 0 = chaos, 1 = fully organised
-          const k = Math.min(1, Math.max(0, (d.x - xs) / (xe - xs)));
-          const px = d.x, py = d.y;
-          if (d.x < xe) {
-            const noise = 1 - k * k;
-            d.vx += (Math.random() - .5) * .5 * noise + (.9 + k * 1.2 - d.vx) * (.02 + k * .08);
-            d.vy += (Math.random() - .5) * .7 * noise;
-            // steer towards the lane as the dot gets organised
-            if (k > 0 && !d.picked) {
-              d.picked = true;
-              d.lane = lanes.reduce((b, l) => Math.abs(laneY(l, d.x) - d.y) < Math.abs(laneY(b, d.x) - d.y) ? l : b);
-            }
-            const target = laneY(d.lane, d.x);
-            d.vy = d.vy * (.96 - k * .3) + (target - d.y) * k * .05;
-            d.vy = Math.max(-2.5, Math.min(2.5, d.vy));
-            if (d.x + d.vx >= xe) d.lane.pulse = 1;
-          } else {
-            // organised: constant speed along the rail
-            d.vx = 2.2; d.vy = 0;
-          }
-          d.x += d.vx; d.y += d.vy;
-          if (d.x >= xe) d.y += (laneY(d.lane, d.x) - d.y) * .35;
-          if (d.y < -10 || d.y > h + 10) d.vy *= -1;
+      const colourOf = d => d.phase === 0 ? BLUE
+        : d.phase === 1 ? mix(BLUE, ORANGE, (d.x - xs) / (x1 - xs))
+        : d.phase === 2 ? mix(ORANGE, GREEN, (d.x - x1) / (x2 - x1)) : GREEN;
 
-          const col = mix(BLUE, ORANGE, k);
-          x.strokeStyle = `rgba(${col},${.6 + k * .3})`;
-          x.lineWidth = 1.2 + k * .6;
-          x.beginPath(); x.moveTo(px, py); x.lineTo(d.x, d.y); x.stroke();
-          x.fillStyle = `rgba(${col},${.85 - k * .35})`;
-          x.beginPath(); x.arc(d.x, d.y, 1.6 - k * .6, 0, 7); x.fill();
-          if (d.x > w + 10) Object.assign(d, spawn(false));
+      const drawNode = (n, rgb) => {
+        x.fillStyle = `rgba(${rgb},${.35 + n.pulse * .6})`;
+        x.beginPath(); x.roundRect ? x.roundRect(n.x - 5, n.y - 5, 10, 10, 3) : x.rect(n.x - 5, n.y - 5, 10, 10); x.fill();
+        if (n.pulse > .05) {
+          x.strokeStyle = `rgba(${rgb},${n.pulse * .4})`; x.lineWidth = 1;
+          x.beginPath(); x.arc(n.x, n.y, 8 + (1 - n.pulse) * 12, 0, 7); x.stroke();
         }
-        drawStructure();
-        if (!still) requestAnimationFrame(step);
+        n.pulse *= .92;
+      };
+
+      const draw = () => {
+        x.clearRect(0, 0, w, h);
+        // diagram edges and output rails
+        x.lineWidth = 1;
+        x.strokeStyle = 'rgba(255,138,101,.12)';
+        x.beginPath();
+        for (const a of col1) for (const b of a.out) {
+          x.moveTo(x1, a.y);
+          for (let px = x1; px <= x2; px += 8) x.lineTo(px, edgeY(a, b, px));
+        }
+        x.stroke();
+        x.strokeStyle = 'rgba(61,220,151,.1)';
+        x.beginPath();
+        for (const b of col2) { x.moveTo(x2, b.y); x.lineTo(w, b.y); }
+        x.stroke();
+        // dots with short fading trails
+        for (const d of dots) {
+          const rgb = colourOf(d).join(','), t = d.trail;
+          for (let i = 2; i < t.length; i += 2) {
+            x.strokeStyle = `rgba(${rgb},${(i / t.length) * .55})`;
+            x.lineWidth = 1.6;
+            x.beginPath(); x.moveTo(t[i - 2], t[i - 1]); x.lineTo(t[i], t[i + 1]); x.stroke();
+          }
+          x.fillStyle = `rgba(${rgb},.95)`;
+          x.beginPath(); x.arc(d.x, d.y, 2, 0, 7); x.fill();
+        }
+        col1.forEach(n => drawNode(n, '255,138,101'));
+        col2.forEach(n => drawNode(n, '61,220,151'));
+      };
+
+      const frame = () => {
+        if (!running) return;
+        dots.forEach(update); draw();
+        requestAnimationFrame(frame);
       };
 
       addEventListener('resize', resize); resize();
-      if (still) { for (let i = 0; i < 500; i++) step(); } else step();
+      if (still) { for (let i = 0; i < 400; i++) dots.forEach(update); draw(); return; }
+      // only animate while the hero is on screen
+      new IntersectionObserver(([e]) => {
+        const was = running; running = e.isIntersecting;
+        if (running && !was) requestAnimationFrame(frame);
+      }).observe(hero);
     })();
   </script>
 </body>
