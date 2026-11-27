@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Philippe Morere — Chief Data Scientist, Machine Learning PhD</title>
-  <meta name="description" content="Philippe Morere — Chief Data Scientist and Tech Lead with a PhD in machine learning (University of Sydney). Reinforcement learning, planning, MLOps and production ML.">
+  <meta name="description" content="Philippe Morere — Chief Data Scientist and Tech Lead with a PhD in machine learning (University of Sydney). Reinforcement learning, planning, LLMs, MLOps and production ML.">
   <meta name="author" content="Philippe Morere">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Philippe Morere — Chief Data Scientist, Machine Learning PhD">
@@ -12,61 +12,80 @@
   <meta property="og:url" content="https://philippemorere.github.io/">
   <meta property="og:image" content="https://philippemorere.github.io/assets/img/philippe.jpg">
   <meta name="twitter:card" content="summary">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%231f3b57'/><text x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23f4efe6' text-anchor='middle'>PM</text></svg>">
+  <meta name="theme-color" content="#0b1524">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230b1524'/><text x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23ff8a65' text-anchor='middle'>PM</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=3">
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#top">Philippe Morere</a>
-    <nav>
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#top"><span class="mono">PM</span> Philippe Morere</a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav">
       <a href="#experience">Experience</a>
       <a href="#research">Research</a>
       <a href="#projects">Projects</a>
       <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Contact</a>
     </nav>
   </header>
 
-  <main id="top">
-    <!-- Intro -->
-    <section class="hero">
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <canvas id="field" aria-hidden="true"></canvas>
+    <div class="hero-inner">
       <div class="hero-text">
-        <p class="eyebrow">Chief Data Scientist · Tech Lead · PhD in Machine Learning</p>
-        <h1>I build machine learning that makes it to production.</h1>
+        <p class="eyebrow"><span class="dot"></span>Chief Data Scientist · Tech Lead · PhD in ML</p>
+        <h1>I build machine learning that makes it to <em>production.</em></h1>
         <p class="lede">
-          I'm Chief Data Scientist and Tech Lead at sense4data and OAK, where I lead data science teams and ship
-          production-grade ML, from NLP and LLMs to computer vision and MLOps. My background is a PhD in statistical learning and optimisation from the University of Sydney
-          (reinforcement learning, planning, robotics) and a software engineering degree, so I'm as comfortable
-          with the maths as with the code and the MLOps pipeline that ships it.
+          Chief Data Scientist and Tech Lead at <strong>sense4data</strong> and <strong>OAK</strong>, leading teams that ship
+          production-grade ML, from NLP and LLMs to computer vision and MLOps. Before that, a PhD and postdoc at the
+          University of Sydney on reinforcement learning, Bayesian optimisation and planning for robots.
         </p>
         <div class="actions">
-          <a class="btn primary" href="/assets/resume/Morere Philippe - resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
-          <a class="btn" href="https://www.linkedin.com/in/philippemorere" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="https://github.com/PhilippeMorere" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn" href="https://scholar.google.com.au/citations?user=x0J0L2EAAAAJ&amp;hl=en" target="_blank" rel="noopener">Publications</a>
+          <a class="btn primary" href="/assets/resume/Morere Philippe - resume.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>Résumé
+          </a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/philippemorere" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/PhilippeMorere" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn ghost" href="https://scholar.google.com.au/citations?user=x0J0L2EAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a>
         </div>
       </div>
-      <img class="portrait" src="/assets/img/philippe.jpg" alt="Portrait of Philippe Morere" width="320" height="290">
-    </section>
-
-    <section class="facts" aria-label="Highlights">
+      <div class="hero-photo">
+        <div class="ring"></div>
+        <img src="/assets/img/philippe.jpg" alt="Portrait of Philippe Morere" width="320" height="320">
+        <div class="badge"><strong>6+ yrs</strong><span>leading data science</span></div>
+      </div>
+    </div>
+    <div class="stats">
       <div><strong>6+</strong><span>data scientists managed &amp; mentored</span></div>
-      <div><strong>10+</strong><span>papers at CoRL, AISTATS, ICRA, IROS, RA-L</span></div>
-      <div><strong>6</strong><span>countries worked or studied in, across 4 continents</span></div>
-      <div><strong>FR · EN · ES</strong><span>native, bilingual, intermediate</span></div>
-    </section>
+      <div><strong>10+</strong><span>papers · CoRL, AISTATS, ICRA, IROS, RA-L</span></div>
+      <div><strong>6</strong><span>countries worked or studied in</span></div>
+      <div><strong>FR · EN · ES</strong><span>native · bilingual · intermediate</span></div>
+    </div>
+    <a class="scroll-cue" href="#experience" aria-label="Scroll to experience"><span></span></a>
+  </section>
 
-    <!-- Experience -->
-    <section id="experience" class="block">
-      <h2>Experience</h2>
+  <main>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section split">
+      <div class="section-head reveal">
+        <p class="kicker">01 — Experience</p>
+        <h2>From research labs to production teams</h2>
+        <p>Twelve years across France, Spain, Australia, the US, Japan and the UK, from robotics research to leading
+          industrial data science R&amp;D.</p>
+      </div>
       <ol class="timeline">
-        <li>
-          <div class="when">Jun 2020 – present<span class="where">Bordeaux, France</span></div>
-          <div class="what">
-            <h3>Chief Data Scientist, Tech Lead <span class="org">sense4data</span></h3>
+        <li class="reveal now">
+          <div class="meta"><span class="date">Jun 2020 – present</span><span class="place">Bordeaux, France</span><span class="pill">Current</span></div>
+          <div class="card">
+            <h3>Chief Data Scientist, Tech Lead</h3>
+            <p class="org">sense4data</p>
             <p>Data science R&amp;D consulting and lab. Projects in banking security (anomaly detection), job recommendation
               (NLP), aerial surveillance (computer vision) and sports betting (tabular ML with an advanced MLOps pipeline).</p>
             <ul>
@@ -76,12 +95,14 @@
               <li>R&amp;D with a strong focus on the transition to production.</li>
               <li>Teaching and talks (Wild Code School, datacraft); team building.</li>
             </ul>
+            <div class="tags"><span>Anomaly detection</span><span>NLP</span><span>Computer vision</span><span>MLOps</span><span>Leadership</span></div>
           </div>
         </li>
-        <li>
-          <div class="when">Mar 2023 – present</div>
-          <div class="what">
-            <h3>Chief Data Scientist <span class="org">OAK</span></h3>
+        <li class="reveal now">
+          <div class="meta"><span class="date">Mar 2023 – present</span><span class="pill">Current</span></div>
+          <div class="card">
+            <h3>Chief Data Scientist</h3>
+            <p class="org">OAK</p>
             <p>An HR and talent-management platform built on AI: NLP, LLMs, embeddings, LangChain, deep learning,
               computer vision, scraping and big data.</p>
             <ul>
@@ -90,12 +111,14 @@
               <li>Architecture, and integration between data science and development.</li>
               <li>Customer-focused feature development.</li>
             </ul>
+            <div class="tags"><span>LLMs</span><span>Embeddings</span><span>LangChain</span><span>Product</span></div>
           </div>
         </li>
-        <li>
-          <div class="when">Jan 2019 – Jun 2020<span class="where">Sydney, Australia</span></div>
-          <div class="what">
-            <h3>Postdoctoral Researcher &amp; Research Fellow <span class="org">University of Sydney</span></h3>
+        <li class="reveal">
+          <div class="meta"><span class="date">Jan 2019 – Jun 2020</span><span class="place">Sydney, Australia</span></div>
+          <div class="card">
+            <h3>Postdoctoral Researcher &amp; Research Fellow</h3>
+            <p class="org">University of Sydney</p>
             <p>Research on automated decision-making (planning, optimisation, reinforcement learning), the theory of
               machine learning methods, and applications to drones, robotic manipulators and ground robots.</p>
             <ul>
@@ -105,173 +128,286 @@
             </ul>
           </div>
         </li>
-        <li>
-          <div class="when">Jan 2018 – Jun 2019<span class="where">Sydney, Australia</span></div>
-          <div class="what">
-            <h3>Research Fellow <span class="org">University of Sydney · Defence Science and Technology</span></h3>
+        <li class="reveal">
+          <div class="meta"><span class="date">Jan 2018 – Jun 2019</span><span class="place">Sydney, Australia</span></div>
+          <div class="card">
+            <h3>Research Fellow</h3>
+            <p class="org">University of Sydney · Defence Science and Technology</p>
             <p>R&amp;D of reinforcement learning techniques for electronic warfare. Agile delivery with regular
               re-evaluation of objectives; the client was satisfied with the deliverable and renewed the contract.</p>
           </div>
         </li>
-        <li>
-          <div class="when">Mar 2017 – Dec 2018</div>
-          <div class="what">
-            <h3>Academic Tutor &amp; Teaching Assistant <span class="org">University of Sydney</span></h3>
-            <p>Several machine learning and data science courses at Master's and Bachelor's level: group teaching,
-              individual consultations, exam and project design and marking, and curriculum revisions for later years.</p>
+        <li class="reveal">
+          <div class="meta"><span class="date">Mar 2017 – Dec 2018</span><span class="place">Sydney, Australia</span></div>
+          <div class="card">
+            <h3>Academic Tutor &amp; Teaching Assistant</h3>
+            <p class="org">University of Sydney</p>
+            <p>Machine learning and data science courses at Master's and Bachelor's level: group teaching, individual
+              consultations, exam and project design and marking, and curriculum revisions.</p>
           </div>
         </li>
-        <li>
-          <div class="when">Feb 2015 – May 2015<span class="where">Providence, USA</span></div>
-          <div class="what">
-            <h3>Research Intern <span class="org">Brown University</span></h3>
+        <li class="reveal">
+          <div class="meta"><span class="date">Feb – May 2015</span><span class="place">Providence, USA</span></div>
+          <div class="card">
+            <h3>Research Intern</h3>
+            <p class="org">Brown University</p>
             <p>Reinforcement learning research: deterministic model-based RL, automatic meta-action generation with a
               logic grammar, and a scaffolding framework for learning on tasks of increasing difficulty. Contributed to
               the open-source BURLAP library.</p>
           </div>
         </li>
-        <li>
-          <div class="when">Jan 2014 – Jun 2015<span class="where">Madrid, Spain</span></div>
-          <div class="what">
-            <h3>Research Engineer <span class="org">IMDEA Networks</span></h3>
+        <li class="reveal">
+          <div class="meta"><span class="date">Jan 2014 – Jun 2015</span><span class="place">Madrid, Spain</span></div>
+          <div class="card">
+            <h3>Research Engineer</h3>
+            <p class="org">IMDEA Networks</p>
             <p>Built a graph and network computational tool: network-analysis algorithms for big data, machine learning
               and NLP, and assisted visualisation of social networks.</p>
           </div>
         </li>
-        <li>
-          <div class="when">2011 – 2013</div>
-          <div class="what">
+        <li class="reveal">
+          <div class="meta"><span class="date">2011 – 2013</span></div>
+          <div class="card compact">
             <h3>Earlier internships</h3>
-            <ul>
-              <li><b>Ritsumeikan University</b>, Kyoto (2013): vision-based indoor navigation for drones, prototyped in Matlab and implemented in VHDL on an FPGA.</li>
-              <li><b>IMDEA Networks</b>, Madrid (2012): topic and polarity detection for Spanish tweets, which led to a publication.</li>
-              <li><b>Pipalia Software House</b>, London (2011): XPages websites and Lotus Domino/Notes applications for customers.</li>
+            <ul class="plain">
+              <li><b>Ritsumeikan University</b>, Kyoto — vision-based indoor navigation for drones, prototyped in Matlab and implemented in VHDL on an FPGA.</li>
+              <li><b>IMDEA Networks</b>, Madrid — topic and polarity detection for Spanish tweets, which led to a publication.</li>
+              <li><b>Pipalia Software House</b>, London — XPages websites and Lotus Domino/Notes applications.</li>
             </ul>
           </div>
         </li>
       </ol>
     </section>
 
-    <!-- Research -->
-    <section id="research" class="block">
-      <h2>Selected research</h2>
-      <p class="section-intro">My research focused on making agents explore, plan and learn efficiently: Bayesian
-        optimisation, uncertainty-driven exploration in reinforcement learning, and hierarchical planning for robots.</p>
-      <ul class="pubs">
-        <li><span class="year">2019</span><span class="title"><a href="https://github.com/PhilippeMorere/learning-to-plan-hierarchically" target="_blank" rel="noopener">Learning to Plan Hierarchically From Curriculum</a></span><span class="venue">P. Morere, L. Ott, F. Ramos — IEEE RA-L</span></li>
-        <li><span class="year">2018</span><span class="title"><a href="https://github.com/PhilippeMorere/EMU-Q" target="_blank" rel="noopener">Bayesian RL for Goal-Only Rewards</a></span><span class="venue">P. Morere, F. Ramos — CoRL 2018</span></li>
-        <li><span class="year">2017</span><span class="title">Sequential Bayesian Optimization as a POMDP for Environment Monitoring with UAVs</span><span class="venue">P. Morere, R. Marchant, F. Ramos — ICRA 2017</span></li>
-      </ul>
-      <p class="also"><a href="https://scholar.google.com.au/citations?user=x0J0L2EAAAAJ&amp;hl=en" target="_blank" rel="noopener">All publications on Google Scholar →</a></p>
+    <!-- RESEARCH -->
+    <section id="research" class="section band">
+      <div class="section-head reveal wide">
+        <p class="kicker">02 — Research</p>
+        <h2>Agents that explore, plan and learn efficiently</h2>
+        <p>My PhD and postdoc focused on Bayesian optimisation, uncertainty-driven exploration in reinforcement learning,
+          and hierarchical planning for robots. A few highlights:</p>
+      </div>
+      <div class="papers">
+        <a class="paper reveal" href="https://github.com/PhilippeMorere/learning-to-plan-hierarchically" target="_blank" rel="noopener">
+          <span class="venue">IEEE RA-L · 2019</span>
+          <h3>Learning to Plan Hierarchically From Curriculum</h3>
+          <p>P. Morere, L. Ott, F. Ramos</p>
+          <span class="link">Code →</span>
+        </a>
+        <a class="paper reveal" href="https://github.com/PhilippeMorere/EMU-Q" target="_blank" rel="noopener">
+          <span class="venue">CoRL · 2018</span>
+          <h3>Bayesian RL for Goal-Only Rewards</h3>
+          <p>P. Morere, F. Ramos</p>
+          <span class="link">Code (EMU-Q) →</span>
+        </a>
+        <a class="paper reveal" href="https://scholar.google.com.au/citations?user=x0J0L2EAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+          <span class="venue">ICRA · 2017</span>
+          <h3>Sequential Bayesian Optimization as a POMDP for Environment Monitoring with UAVs</h3>
+          <p>P. Morere, R. Marchant, F. Ramos</p>
+          <span class="link">Scholar →</span>
+        </a>
+      </div>
+      <p class="more-link reveal"><a href="https://scholar.google.com.au/citations?user=x0J0L2EAAAAJ&amp;hl=en" target="_blank" rel="noopener">See all publications on Google Scholar →</a></p>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="block">
-      <h2>Projects</h2>
-      <div class="cards">
-        <a class="card feature" href="/stonks/">
-          <span class="tag">Play it · Browser game</span>
-          <h3>Super Stonks</h3>
-          <p>A stock-market trading game running in the browser, with a market simulator compiled to WebAssembly.
-            Hire analysts, read earnings guidance and volatility bands, and try to beat the Street.</p>
-          <span class="more">philippemorere.github.io/stonks →</span>
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="section-head reveal wide">
+        <p class="kicker">03 — Projects</p>
+        <h2>Things I build for fun</h2>
+      </div>
+      <div class="projects">
+        <a class="project feature reveal" href="/stonks/">
+          <div class="feature-text">
+            <span class="ptag">Play in your browser</span>
+            <h3>Super Stonks</h3>
+            <p>A stock-market trading game with a market simulator compiled to WebAssembly. Hire analysts, read earnings
+              guidance and volatility bands, and try to beat the Street.</p>
+            <span class="btn primary small">Play now →</span>
+          </div>
+          <svg class="chart" viewBox="0 0 320 160" aria-hidden="true">
+            <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3ddc97" stop-opacity=".45"/><stop offset="1" stop-color="#3ddc97" stop-opacity="0"/></linearGradient></defs>
+            <path d="M0 130 L25 118 L45 124 L70 96 L95 104 L120 80 L140 88 L165 60 L190 72 L215 48 L240 56 L265 30 L290 38 L320 14 L320 160 L0 160Z" fill="url(#g)"/>
+            <path class="line" d="M0 130 L25 118 L45 124 L70 96 L95 104 L120 80 L140 88 L165 60 L190 72 L215 48 L240 56 L265 30 L290 38 L320 14" fill="none" stroke="#3ddc97" stroke-width="3" stroke-linejoin="round"/>
+          </svg>
         </a>
-        <a class="card feature" href="/planner/">
-          <span class="tag">Try it · Browser app</span>
-          <h3>AU Financial Planner</h3>
-          <p>Plan Australian super, ETFs, property and tax year by year to retirement, under the 2026 rules.
-            An optimiser searches for the best plan; everything runs in your browser and stays on your device.</p>
-          <span class="more">philippemorere.github.io/planner →</span>
+        <a class="project feature alt reveal" href="/planner/">
+          <div class="feature-text">
+            <span class="ptag">Try it in your browser</span>
+            <h3>AU Financial Planner</h3>
+            <p>Plan Australian super, ETFs, property and tax year by year to retirement, under the 2026 rules.
+              An optimiser searches for the best plan; everything runs in your browser and stays on your device.</p>
+            <span class="btn primary small">Open the planner →</span>
+          </div>
+          <svg class="chart" viewBox="0 0 320 160" aria-hidden="true">
+            <path d="M0 160 L0 140 C80 132 160 112 240 80 S300 40 320 30 L320 160Z" fill="#5aa9ff" fill-opacity=".18"/>
+            <path d="M0 160 L0 150 C80 146 160 134 240 112 S300 84 320 76 L320 160Z" fill="#ffb36b" fill-opacity=".22"/>
+            <path d="M0 160 L0 155 C80 154 160 150 240 140 S300 124 320 118 L320 160Z" fill="#3ddc97" fill-opacity=".28"/>
+            <path class="line" d="M0 140 C80 132 160 112 240 80 S300 40 320 30" fill="none" stroke="#5aa9ff" stroke-width="3"/>
+          </svg>
         </a>
-        <a class="card" href="https://github.com/PhilippeMorere/lego-mindstorm" target="_blank" rel="noopener">
-          <span class="tag">Python · Blockly</span>
+        <a class="project reveal" href="https://github.com/PhilippeMorere/lego-mindstorm" target="_blank" rel="noopener">
+          <span class="icon">🧱</span>
           <h3>NXT Blocks</h3>
-          <p>Drag-and-drop programming for a LEGO Mindstorms NXT 2.0 on Apple Silicon Macs, replacing LEGO's
-            32-bit software with Blockly, a native NXC compiler and nxt-python.</p>
+          <p>Drag-and-drop programming for LEGO Mindstorms NXT on Apple Silicon Macs: Blockly, a native NXC compiler and nxt-python.</p>
+          <span class="lang">Python · Blockly</span>
         </a>
-        <a class="card" href="https://github.com/PhilippeMorere/EMU-Q" target="_blank" rel="noopener">
-          <span class="tag">Python · Research code</span>
+        <a class="project reveal" href="https://github.com/PhilippeMorere/EMU-Q" target="_blank" rel="noopener">
+          <span class="icon">🎯</span>
           <h3>EMU-Q</h3>
-          <p>Exploring by Minimizing Uncertainty of Q values, from “Bayesian RL for Goal-Only Rewards” (CoRL 2018).</p>
+          <p>Exploring by Minimizing Uncertainty of Q values, from my CoRL 2018 paper.</p>
+          <span class="lang">Python · Research</span>
         </a>
-        <a class="card" href="https://github.com/PhilippeMorere/learning-to-plan-hierarchically" target="_blank" rel="noopener">
-          <span class="tag">Python · Research code</span>
-          <h3>Learning to Plan Hierarchically</h3>
+        <a class="project reveal" href="https://github.com/PhilippeMorere/learning-to-plan-hierarchically" target="_blank" rel="noopener">
+          <span class="icon">🧭</span>
+          <h3>Hierarchical planning</h3>
           <p>Code for the RA-L paper “Learning to Plan Hierarchically From Curriculum”.</p>
+          <span class="lang">Python · Research</span>
         </a>
-        <a class="card" href="https://github.com/PhilippeMorere/RLTrader" target="_blank" rel="noopener">
-          <span class="tag">Python · RL</span>
+        <a class="project reveal" href="https://github.com/PhilippeMorere/RLTrader" target="_blank" rel="noopener">
+          <span class="icon">📈</span>
           <h3>RLTrader</h3>
           <p>An agent that learns to trade using reinforcement learning methods.</p>
+          <span class="lang">Python · RL</span>
         </a>
-        <a class="card" href="https://github.com/PhilippeMorere/BasicReinforcementLearning" target="_blank" rel="noopener">
-          <span class="tag">Python · Tutorial</span>
-          <h3>Basic Reinforcement Learning</h3>
+        <a class="project reveal" href="https://github.com/PhilippeMorere/BasicReinforcementLearning" target="_blank" rel="noopener">
+          <span class="icon">🤖</span>
+          <h3>Basic RL</h3>
           <p>A simple, readable Q-learning example — my most-starred repository.</p>
+          <span class="lang">Python · Tutorial</span>
         </a>
-        <a class="card" href="https://github.com/PhilippeMorere/PacmanRL" target="_blank" rel="noopener">
-          <span class="tag">Python · RL</span>
+        <a class="project reveal" href="https://github.com/PhilippeMorere/PacmanRL" target="_blank" rel="noopener">
+          <span class="icon">👾</span>
           <h3>PacmanRL</h3>
           <p>Reinforcement learning algorithms learning to play Pacman.</p>
-        </a>
-        <a class="card" href="https://github.com/PhilippeMorere/divvy" target="_blank" rel="noopener">
-          <span class="tag">Python · Tooling</span>
-          <h3>divvy</h3>
-          <p>A small tool for distributing experiments across multiple CPUs.</p>
+          <span class="lang">Python · RL</span>
         </a>
       </div>
-      <p class="also">Older projects: a <a href="https://github.com/PhilippeMorere/Bomberman" target="_blank" rel="noopener">multiplayer Bomberman-like game</a> in C/SDL,
-        <a href="https://github.com/PhilippeMorere/Froggy" target="_blank" rel="noopener">Froggy</a>, an Android game,
-        <a href="https://github.com/PhilippeMorere/RLinBURLAP" target="_blank" rel="noopener">RL algorithms in BURLAP</a> and
-        a <a href="https://github.com/PhilippeMorere/SimpleNeuralNetwork" target="_blank" rel="noopener">neural network from scratch</a> in Java.</p>
+      <p class="more-link reveal">Also: a <a href="https://github.com/PhilippeMorere/Bomberman" target="_blank" rel="noopener">multiplayer Bomberman-like game</a> in C,
+        the Android game <a href="https://github.com/PhilippeMorere/Froggy" target="_blank" rel="noopener">Froggy</a>,
+        <a href="https://github.com/PhilippeMorere/divvy" target="_blank" rel="noopener">divvy</a> for distributing experiments, and more on
+        <a href="https://github.com/PhilippeMorere" target="_blank" rel="noopener">GitHub</a>.</p>
     </section>
 
-    <!-- Education + skills -->
-    <section id="education" class="block two-col">
-      <div>
-        <h2>Education</h2>
-        <div class="edu">
-          <h3>PhD, Computer Science <span class="org">University of Sydney · 2015 – 2019</span></h3>
-          <p>Thesis: <em>Bayesian Optimisation for Planning and Reinforcement Learning</em>. Machine learning,
-            reinforcement learning, optimisation, planning and robotics. NICTA scholarship.</p>
+    <!-- EDUCATION & SKILLS -->
+    <section id="education" class="section band">
+      <div class="section-head reveal wide">
+        <p class="kicker">04 — Education &amp; skills</p>
+        <h2>Theory and engineering</h2>
+      </div>
+      <div class="edu-grid">
+        <div class="edu reveal">
+          <span class="years">2015 – 2019</span>
+          <h3>PhD, Computer Science</h3>
+          <p class="org">University of Sydney</p>
+          <p>Thesis: <em>Bayesian Optimisation for Planning and Reinforcement Learning</em>. NICTA scholarship.</p>
         </div>
-        <div class="edu">
-          <h3>Diplôme d'ingénieur (MEng), Telecommunications &amp; Software Engineering <span class="org">ENSEIRB-MATMECA, Bordeaux · 2011 – 2013</span></h3>
-          <p>Graduated 1st in class. Winner of the Thales Management Prize, leading a 7-person team for 6 months on adaptive video streaming.</p>
+        <div class="edu reveal">
+          <span class="years">2011 – 2013</span>
+          <h3>Diplôme d'ingénieur (MEng)</h3>
+          <p class="org">ENSEIRB-MATMECA, Bordeaux</p>
+          <p>Telecommunications &amp; software engineering. Graduated 1st in class; Thales Management Prize.</p>
         </div>
-        <div class="edu">
-          <h3>Master's, Computer Science <span class="org">Université de Bordeaux · 2012 – 2013</span></h3>
-        </div>
-        <div class="edu">
-          <h3>Engineering Summer Program, Robotics <span class="org">Tohoku University, Japan · 2013</span></h3>
+        <div class="edu reveal">
+          <span class="years">2012 – 2013</span>
+          <h3>Master's, Computer Science</h3>
+          <p class="org">Université de Bordeaux</p>
+          <p>Plus an engineering summer program in robotics at Tohoku University, Japan (2013).</p>
         </div>
       </div>
-      <div>
-        <h2>Skills</h2>
-        <dl class="skills">
-          <dt>Machine learning</dt><dd>Reinforcement learning, Bayesian optimisation, statistics, NLP &amp; LLMs, embeddings, computer vision, anomaly detection, robotics</dd>
-          <dt>Languages</dt><dd>Python, C++, Java, Linux / shell</dd>
-          <dt>Libraries</dt><dd>PyTorch, scikit-learn, LangChain, pandas, NumPy, OpenCV, pytest</dd>
-          <dt>Infra &amp; MLOps</dt><dd>Docker, Argo, AWS, PostgreSQL, MongoDB</dd>
-          <dt>Also</dt><dd>Pen-testing &amp; reverse engineering, scraping</dd>
-          <dt>Spoken</dt><dd>French (native), English (bilingual, IELTS 8.0), Spanish (intermediate)</dd>
-        </dl>
+      <div class="skills reveal">
+        <div>
+          <h4>Machine learning</h4>
+          <div class="chips"><span>Reinforcement learning</span><span>Bayesian optimisation</span><span>LLMs &amp; NLP</span><span>Embeddings</span><span>Computer vision</span><span>Anomaly detection</span><span>Statistics</span><span>Robotics</span></div>
+        </div>
+        <div>
+          <h4>Engineering</h4>
+          <div class="chips"><span>Python</span><span>C++</span><span>Java</span><span>PyTorch</span><span>scikit-learn</span><span>LangChain</span><span>pandas</span><span>OpenCV</span><span>pytest</span></div>
+        </div>
+        <div>
+          <h4>Infra &amp; MLOps</h4>
+          <div class="chips"><span>Docker</span><span>Argo</span><span>AWS</span><span>PostgreSQL</span><span>MongoDB</span><span>Linux</span></div>
+        </div>
+        <div>
+          <h4>Languages</h4>
+          <div class="chips"><span>French · native</span><span>English · bilingual (IELTS 8.0)</span><span>Spanish · intermediate</span></div>
+        </div>
       </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="block contact">
-      <h2>Get in touch</h2>
-      <p>The best way to reach me is by email or LinkedIn.</p>
-      <ul class="contact-list">
-        <li><span>Email</span><a href="mailto:philippe.morere@gmail.com">philippe.morere@gmail.com</a></li>
-        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/philippemorere" target="_blank" rel="noopener">linkedin.com/in/philippemorere</a></li>
-        <li><span>GitHub</span><a href="https://github.com/PhilippeMorere" target="_blank" rel="noopener">github.com/PhilippeMorere</a></li>
-      </ul>
     </section>
   </main>
 
-  <footer class="footer">© <span id="y">2026</span> Philippe Morere</footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="contact-inner reveal">
+      <p class="kicker light">05 — Contact</p>
+      <h2>Let's talk.</h2>
+      <p>About data science leadership, ML in production, or reinforcement learning. The best way to reach me is by email or LinkedIn.</p>
+      <div class="actions center">
+        <a class="btn primary big" href="mailto:philippe.morere@gmail.com">philippe.morere@gmail.com</a>
+        <a class="btn ghost big" href="https://www.linkedin.com/in/philippemorere" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost big" href="https://github.com/PhilippeMorere" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <footer>© <span id="y">2026</span> Philippe Morere</footer>
+  </section>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Header: solid once scrolled; mobile menu toggle
+    const bar = document.getElementById('topbar');
+    const onScroll = () => bar.classList.toggle('solid', scrollY > 40);
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    const toggle = document.querySelector('.menu-toggle');
+    toggle.addEventListener('click', () => {
+      const open = bar.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    document.querySelectorAll('#nav a').forEach(a => a.addEventListener('click', () => {
+      bar.classList.remove('open'); toggle.setAttribute('aria-expanded', false);
+    }));
+
+    // Reveal on scroll
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Hero background: agents exploring towards goals, leaving fading trails
+    (() => {
+      const c = document.getElementById('field'), x = c.getContext('2d');
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let w, h, agents = [], goals = [];
+      const resize = () => {
+        const r = devicePixelRatio || 1;
+        w = c.clientWidth; h = c.clientHeight;
+        c.width = w * r; c.height = h * r; x.setTransform(r, 0, 0, r, 0, 0);
+        goals = [[w * .82, h * .22], [w * .68, h * .78], [w * .12, h * .85]];
+        agents = Array.from({ length: Math.round(w / 22) }, spawn);
+        x.fillStyle = '#0b1524'; x.fillRect(0, 0, w, h);
+      };
+      function spawn() {
+        return { x: Math.random() * w, y: Math.random() * h, vx: 0, vy: 0,
+                 g: goals[Math.floor(Math.random() * goals.length)], eps: .6 + Math.random() * .4 };
+      }
+      const step = () => {
+        x.fillStyle = 'rgba(11,21,36,0.08)'; x.fillRect(0, 0, w, h);
+        for (const a of agents) {
+          const dx = a.g[0] - a.x, dy = a.g[1] - a.y, d = Math.hypot(dx, dy) || 1;
+          a.eps *= .997;
+          a.vx = a.vx * .9 + (dx / d) * (1 - a.eps) * .5 + (Math.random() - .5) * a.eps * 1.6;
+          a.vy = a.vy * .9 + (dy / d) * (1 - a.eps) * .5 + (Math.random() - .5) * a.eps * 1.6;
+          const px = a.x, py = a.y; a.x += a.vx; a.y += a.vy;
+          x.strokeStyle = a.eps > .35 ? 'rgba(120,170,235,.55)' : 'rgba(255,138,101,.8)';
+          x.lineWidth = 1.5; x.beginPath(); x.moveTo(px, py); x.lineTo(a.x, a.y); x.stroke();
+          if (d < 8 || a.x < -20 || a.x > w + 20 || a.y < -20 || a.y > h + 20) Object.assign(a, spawn());
+        }
+        for (const g of goals) { x.fillStyle = 'rgba(255,138,101,.9)'; x.beginPath(); x.arc(g[0], g[1], 2.5, 0, 7); x.fill(); }
+        if (!still) requestAnimationFrame(step);
+      };
+      addEventListener('resize', resize); resize();
+      if (still) { for (let i = 0; i < 400; i++) step(); } else step();
+    })();
+  </script>
 </body>
 </html>
