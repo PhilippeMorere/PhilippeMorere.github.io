@@ -79,7 +79,7 @@ img { display: block; max-width: 100%; }
 .hero::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(700px 420px at 18% 45%, rgba(11, 21, 36, .7), transparent 70%),
+    radial-gradient(640px 380px at 20% 48%, rgba(11, 21, 36, .6), transparent 72%),
     linear-gradient(to bottom, transparent 70%, rgba(11, 21, 36, .9));
 }
 .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.35fr 1fr; gap: 64px; align-items: center; }
