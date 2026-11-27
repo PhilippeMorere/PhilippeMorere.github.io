@@ -382,40 +382,58 @@
       const mix = (a, b, k) => a.map((v, i) => Math.round(v + (b[i] - v) * k));
       const edgeY = (a, b, px) => a.y + (b.y - a.y) * ease((px - x1) / (x2 - x1));
 
-      const resize = () => {
+      let ow = 0, oh = 0;
+      const layout = () => {
         const r = Math.min(devicePixelRatio || 1, 2);
         w = c.clientWidth; h = c.clientHeight;
+        if (!w || !h) return;
         c.width = w * r; c.height = h * r; x.setTransform(r, 0, 0, r, 0, 0);
         const narrow = w < 720;
-        xs = w * (narrow ? .12 : .28);   // chaos ends, organising begins
-        x1 = w * (narrow ? .5 : .56);    // first column of nodes
-        x2 = w * (narrow ? .8 : .8);     // second (partial) column
-        const n = narrow ? 4 : 6, m = narrow ? 2 : 3;
-        col1 = Array.from({ length: n }, (_, i) => ({ x: x1, y: h * (.14 + .74 * (i + .5) / n), pulse: 0 }));
-        col2 = Array.from({ length: m }, (_, j) => ({ x: x2, y: h * (.26 + .5 * (j + .5) / m), pulse: 0 }));
-        if (!narrow) {
-          // keep the second column clear of the portrait: one node above it, one below
-          const cr = c.getBoundingClientRect(), pr = document.querySelector('.hero-photo').getBoundingClientRect();
-          const sr = document.querySelector('.stats').getBoundingClientRect();
-          x2 = pr.left - cr.left + pr.width / 2;
-          col2 = [
-            { x: x2, y: Math.max(h * .06, pr.top - cr.top - 34), pulse: 0 },
-            { x: x2, y: Math.min(sr.top - cr.top - 24, pr.bottom - cr.top + 34), pulse: 0 }
-          ];
+        const cr = c.getBoundingClientRect(), pr = document.querySelector('.hero-photo').getBoundingClientRect();
+        const sr = document.querySelector('.stats').getBoundingClientRect();
+        const photoLeft = pr.left - cr.left, photoMid = photoLeft + pr.width / 2;
+        if (narrow) {
+          xs = w * .12; x1 = w * .5; x2 = w * .8;
+        } else {
+          // first column sits in the gap between the text and the portrait
+          x1 = Math.min(w * .5, photoLeft - 90);
+          xs = Math.max(w * .12, x1 - w * .26);
+          x2 = photoMid;
         }
-        // each first-column node feeds its one or two nearest second-column nodes
+        const n = narrow ? 4 : 6;
+        const old1 = col1, old2 = col2;
+        col1 = Array.from({ length: n }, (_, i) => ({ x: x1, y: h * (.14 + .74 * (i + .5) / n), pulse: old1[i] ? old1[i].pulse : 0 }));
+        col2 = narrow
+          ? [{ x: x2, y: h * .38 }, { x: x2, y: h * .64 }]
+          : [{ x: x2, y: Math.max(h * .06, pr.top - cr.top - 34) },          // above the portrait
+             { x: x2, y: Math.min(sr.top - cr.top - 24, pr.bottom - cr.top + 34) }]; // below it
+        col2.forEach((b, j) => b.pulse = old2[j] ? old2[j].pulse : 0);
+        // each first-column node feeds its one or two nearest second-column nodes (by index)
         col1.forEach(a => {
-          const byDist = [...col2].sort((p, q) => Math.abs(p.y - a.y) - Math.abs(q.y - a.y));
-          a.out = byDist.slice(0, Math.abs(byDist[0].y - a.y) < h * .08 ? 1 : 2);
+          const byDist = col2.map((b, j) => j).sort((p, q) => Math.abs(col2[p].y - a.y) - Math.abs(col2[q].y - a.y));
+          a.out = byDist.slice(0, Math.abs(col2[byDist[0]].y - a.y) < h * .08 ? 1 : 2);
         });
-        dots = Array.from({ length: Math.max(14, Math.round(w / 32)) }, () => spawn(-Math.random() * w * .6));
-        for (let i = 0; i < 420; i++) dots.forEach(update);   // warm up so every stage is populated
+
+        if (!dots.length) {
+          dots = Array.from({ length: Math.max(14, Math.round(w / 32)) }, () => spawn(-Math.random() * w * .6));
+          for (let i = 0; i < 420; i++) dots.forEach(update);   // warm up so every stage is populated
+        } else {
+          // keep the dots where they were, scaled to the new size
+          const sx = w / ow, sy = h / oh;
+          for (const d of dots) {
+            d.x *= sx; d.y *= sy; d.y0 *= sy;
+            d.trail = d.trail.map((v, i) => v * (i % 2 ? sy : sx));
+            d.ai = Math.min(d.ai, col1.length - 1);
+            if (d.phase >= 2 && !col1[d.ai].out.includes(d.bi)) d.bi = col1[d.ai].out[0];
+          }
+        }
+        ow = w; oh = h;
         draw();
       };
 
       function spawn(px = -10 - Math.random() * 80) {
         return { x: px, y: h * (.08 + Math.random() * .84), vx: 1.1 + Math.random() * .6, vy: (Math.random() - .5) * 2,
-                 phase: 0, y0: 0, a: null, b: null, trail: [] };
+                 phase: 0, y0: 0, ai: 0, bi: 0, trail: [] };
       }
 
       const update = d => {
@@ -426,19 +444,21 @@
           if (d.y < h * .04 || d.y > h * .96) d.vy *= -1;
           if (d.x >= xs) {                          // start organising towards nearest node
             d.phase = 1; d.y0 = d.y;
-            d.a = col1.reduce((b, n) => Math.abs(n.y - d.y) < Math.abs(b.y - d.y) ? n : b);
+            d.ai = col1.reduce((b, n, i) => Math.abs(n.y - d.y) < Math.abs(col1[b].y - d.y) ? i : b, 0);
           }
         } else if (d.phase === 1) {                 // smooth curve into a first-column node
-          d.x += 2 + 1.4 * ((d.x - xs) / (x1 - xs));
-          const u = Math.min(1, (d.x - xs) / (x1 - xs));
-          d.y = d.y0 + (d.a.y - d.y0) * ease(u);
-          if (u >= 1) { d.a.pulse = 1; d.phase = 2; d.x = x1; d.b = d.a.out[Math.floor(Math.random() * d.a.out.length)]; }
+          const a = col1[d.ai];
+          d.x += 2 + 1.4 * Math.max(0, (d.x - xs) / (x1 - xs));
+          const u = Math.min(1, Math.max(0, (d.x - xs) / (x1 - xs)));
+          d.y = d.y0 + (a.y - d.y0) * ease(u);
+          if (u >= 1) { a.pulse = 1; d.phase = 2; d.x = x1; d.bi = a.out[Math.floor(Math.random() * a.out.length)]; }
         } else if (d.phase === 2) {                 // along the diagram edge to the second column
+          const a = col1[d.ai], b = col2[d.bi];
           d.x += 3.4;
-          d.y = edgeY(d.a, d.b, Math.min(d.x, x2));
-          if (d.x >= x2) { d.b.pulse = 1; d.phase = 3; }
+          d.y = edgeY(a, b, Math.min(d.x, x2));
+          if (d.x >= x2) { b.pulse = 1; d.phase = 3; }
         } else {                                    // output: straight and steady
-          d.x += 3.4; d.y = d.b.y;
+          d.x += 3.4; d.y = col2[d.bi].y;
         }
         d.trail.push(d.x, d.y);
         if (d.trail.length > TRAIL * 2) d.trail.splice(0, 2);
@@ -465,7 +485,8 @@
         x.lineWidth = 1;
         x.strokeStyle = 'rgba(255,138,101,.12)';
         x.beginPath();
-        for (const a of col1) for (const b of a.out) {
+        for (const a of col1) for (const j of a.out) {
+          const b = col2[j];
           x.moveTo(x1, a.y);
           for (let px = x1; px <= x2; px += 8) x.lineTo(px, edgeY(a, b, px));
         }
@@ -495,7 +516,8 @@
         requestAnimationFrame(frame);
       };
 
-      addEventListener('resize', resize); resize();
+      let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(layout, 80); });
+      layout();
       if (still) { for (let i = 0; i < 400; i++) dots.forEach(update); draw(); return; }
       // only animate while the hero is on screen
       new IntersectionObserver(([e]) => {
