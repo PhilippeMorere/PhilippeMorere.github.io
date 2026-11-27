@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Philippe Morere — Chief Data Scientist, Machine Learning PhD</title>
-  <meta name="description" content="Philippe Morere — Chief Data Scientist and Tech Lead with a PhD in machine learning (University of Sydney). Reinforcement learning, planning, LLMs, MLOps and production ML.">
+  <title>Philippe Morere — AI Automation &amp; Machine Learning</title>
+  <meta name="description" content="Philippe Morere — AI automation specialist. Senior ML Engineer at Canva building and deploying production AI agents; former Chief Data Scientist; PhD in machine learning.">
   <meta name="author" content="Philippe Morere">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Philippe Morere — Chief Data Scientist, Machine Learning PhD">
-  <meta property="og:description" content="Chief Data Scientist / Tech Lead with a PhD in statistical learning and optimisation. Reinforcement learning, planning, production ML.">
+  <meta property="og:title" content="Philippe Morere — AI Automation &amp; Machine Learning">
+  <meta property="og:description" content="I design, evaluate and deploy AI agents and automation that hold up in production.">
   <meta property="og:url" content="https://philippemorere.github.io/">
   <meta property="og:image" content="https://philippemorere.github.io/assets/img/philippe.jpg">
   <meta name="twitter:card" content="summary">
@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css?v=3">
+  <link rel="stylesheet" href="/assets/css/style.css?v=5">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -27,10 +27,11 @@
       <span></span><span></span><span></span>
     </button>
     <nav id="nav">
+      <a href="#expertise">Expertise</a>
+      <a href="#approach">Approach</a>
       <a href="#experience">Experience</a>
-      <a href="#research">Research</a>
+      <a href="#work">Work</a>
       <a href="#projects">Projects</a>
-      <a href="#education">Education</a>
       <a href="#contact" class="nav-cta">Contact</a>
     </nav>
   </header>
@@ -40,181 +41,243 @@
     <canvas id="field" aria-hidden="true"></canvas>
     <div class="hero-inner">
       <div class="hero-text">
-        <p class="eyebrow"><span class="dot"></span>Chief Data Scientist · Tech Lead · PhD in ML</p>
-        <h1>I build machine learning that makes it to <em>production.</em></h1>
+        <p class="eyebrow"><span class="dot"></span>AI automation specialist · Senior ML Engineer at Canva</p>
+        <h1>AI agents and automation that <em>hold up in production.</em></h1>
         <p class="lede">
-          Chief Data Scientist and Tech Lead at <strong>sense4data</strong> and <strong>OAK</strong>, leading teams that ship
-          production-grade ML, from NLP and LLMs to computer vision and MLOps. Before that, a PhD and postdoc at the
-          University of Sydney on reinforcement learning, Bayesian optimisation and planning for robots.
+          I design, evaluate and deploy <strong>AI agents, LLM workflows and machine learning systems</strong> that take
+          repetitive work off people's plates. Today I build the agent harness, evaluation and production stack for an AI
+          agent at Canva; before that I spent four years as Chief Data Scientist delivering ML projects for clients, and
+          did a PhD on how agents learn and plan.
         </p>
         <div class="actions">
-          <a class="btn primary" href="/assets/resume/Morere Philippe - resume.pdf" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>Résumé
-          </a>
+          <a class="btn primary" href="#experience">See my experience</a>
+          <a class="btn ghost" href="/assets/resume/Morere Philippe - resume.pdf" target="_blank" rel="noopener">Résumé</a>
           <a class="btn ghost" href="https://www.linkedin.com/in/philippemorere" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn ghost" href="https://github.com/PhilippeMorere" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn ghost" href="https://scholar.google.com.au/citations?user=x0J0L2EAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a>
         </div>
-      </div>
+              </div>
       <div class="hero-photo">
         <div class="ring"></div>
         <img src="/assets/img/philippe.jpg" alt="Portrait of Philippe Morere" width="320" height="320">
-        <div class="badge"><strong>6+ yrs</strong><span>leading data science</span></div>
+        <div class="badge"><strong>12+ yrs</strong><span>building ML &amp; AI systems</span></div>
       </div>
     </div>
     <div class="stats">
-      <div><strong>6+</strong><span>data scientists managed &amp; mentored</span></div>
-      <div><strong>10+</strong><span>papers · CoRL, AISTATS, ICRA, IROS, RA-L</span></div>
-      <div><strong>6</strong><span>countries worked or studied in</span></div>
-      <div><strong>FR · EN · ES</strong><span>native · bilingual · intermediate</span></div>
+      <div><strong>Agents</strong><span>harness, evals &amp; deployment at Canva</span></div>
+      <div><strong>4 yrs</strong><span>leading client ML projects as Chief Data Scientist</span></div>
+      <div><strong>12+ yrs</strong><span>in machine learning, research to production</span></div>
+      <div><strong>PhD</strong><span>in machine learning, University of Sydney</span></div>
     </div>
-    <a class="scroll-cue" href="#experience" aria-label="Scroll to experience"><span></span></a>
+    <a class="scroll-cue" href="#expertise" aria-label="Scroll to services"><span></span></a>
   </section>
 
   <main>
+    <!-- FOCUS -->
+    <section class="section intro-band">
+      <div class="value reveal">
+        <p class="kicker">What I focus on</p>
+        <h2>Automation that's engineered, not improvised.</h2>
+        <p>A demo agent is easy; one you can trust with real work is not. The hard part is everything around the model:
+          the right tools and context, guardrails, evaluation that catches regressions, monitoring, cost control and
+          knowing when to bring a human in. That's the part I specialise in, whether the answer is an LLM agent, a classic
+          ML model, or a simple script.</p>
+      </div>
+      <div class="value-points">
+        <div class="vp reveal"><span class="vp-icon">⚙</span><h3>Reliable</h3><p>Agents with well-designed tools, guardrails and fallbacks, so they behave predictably on real inputs.</p></div>
+        <div class="vp reveal"><span class="vp-icon">✓</span><h3>Measured</h3><p>Evaluation suites and metrics from day one, so quality is a number, not a feeling.</p></div>
+        <div class="vp reveal"><span class="vp-icon">↗</span><h3>Production-ready</h3><p>Deployed, monitored and cost-aware, with humans in the loop where it matters.</p></div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="expertise" class="section">
+      <div class="section-head reveal wide">
+        <p class="kicker">01 — Expertise</p>
+        <h2>What I build</h2>
+        <p>The kinds of systems I design and deploy, choosing the simplest technology that does the job reliably.</p>
+      </div>
+      <div class="services">
+        <article class="service reveal">
+          <span class="s-icon">📄</span>
+          <h3>Document &amp; data processing</h3>
+          <p>Extracting, classifying and validating information from invoices, contracts, forms, CVs or emails, and feeding it into downstream systems.</p>
+        </article>
+        <article class="service reveal">
+          <span class="s-icon">🤖</span>
+          <h3>AI agents &amp; assistants</h3>
+          <p>LLM agents that use tools and data to complete multi-step tasks, with guardrails, evaluation and human approval built in.</p>
+        </article>
+        <article class="service reveal">
+          <span class="s-icon">📨</span>
+          <h3>Inbox, support &amp; triage</h3>
+          <p>Routing, summarising and drafting replies to incoming requests, so people only handle what needs a human.</p>
+        </article>
+        <article class="service reveal">
+          <span class="s-icon">📊</span>
+          <h3>Reporting &amp; data pipelines</h3>
+          <p>Replacing manual spreadsheet work with automated pipelines, dashboards and AI-written summaries.</p>
+        </article>
+        <article class="service reveal">
+          <span class="s-icon">🔍</span>
+          <h3>Knowledge search (RAG)</h3>
+          <p>Question answering over internal documents and history, with answers that cite their sources.</p>
+        </article>
+        <article class="service reveal">
+          <span class="s-icon">📈</span>
+          <h3>Predictive models</h3>
+          <p>Forecasting, anomaly and fraud detection, recommendation and scoring, using classic ML where it beats an LLM.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="approach" class="section band">
+      <div class="section-head reveal wide">
+        <p class="kicker">02 — Approach</p>
+        <h2>How I take an agent from idea to production</h2>
+        <p>The same loop I use at Canva and used with clients: small steps, real data, and metrics at every stage.</p>
+      </div>
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="num">1</span>
+          <h3>Scope</h3>
+          <p>Map the workflow, find where time or quality is lost, and define what success means in hours, cost or accuracy.</p>
+        </li>
+        <li class="step reveal">
+          <span class="num">2</span>
+          <h3>Prototype</h3>
+          <p>A working prototype on real data, with the agent's tools and context designed around the task.</p>
+        </li>
+        <li class="step reveal">
+          <span class="num">3</span>
+          <h3>Evaluate</h3>
+          <p>An evaluation suite with clear metrics and test cases, so every change is measured and regressions are caught early.</p>
+        </li>
+        <li class="step reveal">
+          <span class="num">4</span>
+          <h3>Deploy &amp; monitor</h3>
+          <p>Integrated with existing tools, monitored in production, with fallbacks, cost control and human review where it matters.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="section">
+      <div class="section-head reveal wide">
+        <p class="kicker">03 — Selected work</p>
+        <h2>Problems I've solved</h2>
+        <p>Projects delivered for clients and partners as Chief Data Scientist and as a researcher.</p>
+      </div>
+      <div class="cases">
+        <div class="case reveal"><span class="case-tag">Banking</span><h4>Security anomaly detection</h4><p>Flagging unusual activity in banking security data for investigation.</p></div>
+        <div class="case reveal"><span class="case-tag">HR tech</span><h4>Job &amp; career matching</h4><p>NLP, LLM and embedding-based recommendation for an AI talent-management platform.</p></div>
+        <div class="case reveal"><span class="case-tag">Sports betting</span><h4>Production ML pipeline</h4><p>Tabular models with an advanced MLOps pipeline, from training to monitored deployment.</p></div>
+        <div class="case reveal"><span class="case-tag">Surveillance</span><h4>Aerial computer vision</h4><p>Detection and analysis in aerial imagery.</p></div>
+        <div class="case reveal"><span class="case-tag">Energy</span><h4>Decision support for Origin</h4><p>Fusing 3D and image data on geological phenomena, with automated decision-making to assist experts.</p></div>
+        <div class="case reveal"><span class="case-tag">Defence</span><h4>Reinforcement learning</h4><p>RL techniques for electronic warfare for the Australian Department of Defence; the contract was renewed.</p></div>
+      </div>
+    </section>
+
     <!-- EXPERIENCE -->
-    <section id="experience" class="section split">
+    <section id="experience" class="section band split">
       <div class="section-head reveal">
-        <p class="kicker">01 — Experience</p>
-        <h2>From research labs to production teams</h2>
-        <p>Twelve years across France, Spain, Australia, the US, Japan and the UK, from robotics research to leading
-          industrial data science R&amp;D.</p>
+        <p class="kicker">04 — Experience</p>
+        <h2>Background</h2>
+        <p>Twelve years in machine learning across industry and research, in France, Spain, Australia, the US and Japan.</p>
+        <p><a href="/assets/resume/Morere Philippe - resume.pdf" target="_blank" rel="noopener">Download résumé (PDF) →</a></p>
       </div>
       <ol class="timeline">
         <li class="reveal now">
-          <div class="meta"><span class="date">Jun 2020 – present</span><span class="place">Bordeaux, France</span><span class="pill">Current</span></div>
+          <div class="meta"><span class="date">Mar 2025 – present</span><span class="pill">Current</span></div>
+          <div class="card">
+            <h3>Senior Machine Learning Engineer</h3>
+            <p class="org">Canva</p>
+            <p>Building and deploying an AI agent that edits Canva documents, mostly videos, on behalf of users. I work on
+              the harness that makes the agent dependable, and on everything needed to evaluate it and run it in production.</p>
+            <ul>
+              <li><b>Agent harness:</b> the tools, context and control loop that let an LLM agent take real actions on rich documents.</li>
+              <li><b>Evaluation:</b> test sets, metrics and tooling to measure agent quality and catch regressions before they ship.</li>
+              <li><b>Productionisation:</b> taking the agent from prototype to a reliable service, with attention to latency, cost and monitoring.</li>
+            </ul>
+            <div class="tags"><span>AI agents</span><span>Tool use</span><span>LLM evaluation</span><span>Production</span><span>Video</span></div>
+          </div>
+        </li>
+        <li class="reveal">
+          <div class="meta"><span class="date">Jun 2020 – 2024</span><span class="place">Bordeaux, France</span></div>
           <div class="card">
             <h3>Chief Data Scientist, Tech Lead</h3>
             <p class="org">sense4data</p>
-            <p>Data science R&amp;D consulting and lab. Projects in banking security (anomaly detection), job recommendation
-              (NLP), aerial surveillance (computer vision) and sports betting (tabular ML with an advanced MLOps pipeline).</p>
+            <p>Ran a data science R&amp;D consulting lab. Client projects in banking security (anomaly detection), job
+              recommendation (NLP), aerial surveillance (computer vision) and sports betting (tabular ML and MLOps).</p>
             <ul>
-              <li>Managing and mentoring a team of 6+ data scientists (agile, kanban, self-organised).</li>
-              <li>Client-facing and end-to-end, with a focus on customer satisfaction.</li>
-              <li>Working closely with data engineers on architecture and design choices.</li>
-              <li>R&amp;D with a strong focus on the transition to production.</li>
-              <li>Teaching and talks (Wild Code School, datacraft); team building.</li>
+              <li>Managed and mentored 6+ data scientists (agile, kanban, self-organised).</li>
+              <li>Client-facing and end-to-end, with a focus on customer satisfaction and production delivery.</li>
+              <li>Teaching and talks (Wild Code School, datacraft).</li>
             </ul>
-            <div class="tags"><span>Anomaly detection</span><span>NLP</span><span>Computer vision</span><span>MLOps</span><span>Leadership</span></div>
           </div>
         </li>
-        <li class="reveal now">
-          <div class="meta"><span class="date">Mar 2023 – present</span><span class="pill">Current</span></div>
+        <li class="reveal">
+          <div class="meta"><span class="date">Mar 2023 – 2024</span></div>
           <div class="card">
             <h3>Chief Data Scientist</h3>
             <p class="org">OAK</p>
-            <p>An HR and talent-management platform built on AI: NLP, LLMs, embeddings, LangChain, deep learning,
-              computer vision, scraping and big data.</p>
-            <ul>
-              <li>Leading the R&amp;D team (4 data scientists).</li>
-              <li>Product strategy and product management.</li>
-              <li>Architecture, and integration between data science and development.</li>
-              <li>Customer-focused feature development.</li>
-            </ul>
-            <div class="tags"><span>LLMs</span><span>Embeddings</span><span>LangChain</span><span>Product</span></div>
+            <p>AI-powered HR and talent-management platform (NLP, LLMs, embeddings, LangChain, computer vision). Led the
+              R&amp;D team of 4, and owned product strategy, architecture and customer-focused feature development.</p>
           </div>
         </li>
         <li class="reveal">
-          <div class="meta"><span class="date">Jan 2019 – Jun 2020</span><span class="place">Sydney, Australia</span></div>
+          <div class="meta"><span class="date">2017 – 2020</span><span class="place">Sydney, Australia</span></div>
           <div class="card">
-            <h3>Postdoctoral Researcher &amp; Research Fellow</h3>
+            <h3>Postdoc, Research Fellow &amp; Tutor</h3>
             <p class="org">University of Sydney</p>
-            <p>Research on automated decision-making (planning, optimisation, reinforcement learning), the theory of
-              machine learning methods, and applications to drones, robotic manipulators and ground robots.</p>
-            <ul>
-              <li>For Origin Energy: modelling and data-fusion methods for geological phenomena (3D + images), and automated decision-making to assist experts.</li>
-              <li>Direct communication with the client, adapting to evolving requirements.</li>
-              <li>Supervised PhD students, providing motivation and technical guidance.</li>
-            </ul>
+            <p>Industry research projects for Origin Energy and Defence Science and Technology, research in planning,
+              optimisation and reinforcement learning for robots, PhD student supervision, and teaching ML courses.</p>
           </div>
         </li>
         <li class="reveal">
-          <div class="meta"><span class="date">Jan 2018 – Jun 2019</span><span class="place">Sydney, Australia</span></div>
-          <div class="card">
-            <h3>Research Fellow</h3>
-            <p class="org">University of Sydney · Defence Science and Technology</p>
-            <p>R&amp;D of reinforcement learning techniques for electronic warfare. Agile delivery with regular
-              re-evaluation of objectives; the client was satisfied with the deliverable and renewed the contract.</p>
-          </div>
-        </li>
-        <li class="reveal">
-          <div class="meta"><span class="date">Mar 2017 – Dec 2018</span><span class="place">Sydney, Australia</span></div>
-          <div class="card">
-            <h3>Academic Tutor &amp; Teaching Assistant</h3>
-            <p class="org">University of Sydney</p>
-            <p>Machine learning and data science courses at Master's and Bachelor's level: group teaching, individual
-              consultations, exam and project design and marking, and curriculum revisions.</p>
-          </div>
-        </li>
-        <li class="reveal">
-          <div class="meta"><span class="date">Feb – May 2015</span><span class="place">Providence, USA</span></div>
-          <div class="card">
-            <h3>Research Intern</h3>
-            <p class="org">Brown University</p>
-            <p>Reinforcement learning research: deterministic model-based RL, automatic meta-action generation with a
-              logic grammar, and a scaffolding framework for learning on tasks of increasing difficulty. Contributed to
-              the open-source BURLAP library.</p>
-          </div>
-        </li>
-        <li class="reveal">
-          <div class="meta"><span class="date">Jan 2014 – Jun 2015</span><span class="place">Madrid, Spain</span></div>
-          <div class="card">
-            <h3>Research Engineer</h3>
-            <p class="org">IMDEA Networks</p>
-            <p>Built a graph and network computational tool: network-analysis algorithms for big data, machine learning
-              and NLP, and assisted visualisation of social networks.</p>
-          </div>
-        </li>
-        <li class="reveal">
-          <div class="meta"><span class="date">2011 – 2013</span></div>
+          <div class="meta"><span class="date">2011 – 2015</span></div>
           <div class="card compact">
-            <h3>Earlier internships</h3>
+            <h3>Earlier</h3>
             <ul class="plain">
-              <li><b>Ritsumeikan University</b>, Kyoto — vision-based indoor navigation for drones, prototyped in Matlab and implemented in VHDL on an FPGA.</li>
-              <li><b>IMDEA Networks</b>, Madrid — topic and polarity detection for Spanish tweets, which led to a publication.</li>
-              <li><b>Pipalia Software House</b>, London — XPages websites and Lotus Domino/Notes applications.</li>
+              <li><b>IMDEA Networks</b>, Madrid: research engineer working on graph analytics, NLP and big-data tooling.</li>
+              <li><b>Brown University</b>, USA: reinforcement learning research and contributions to the BURLAP library.</li>
+              <li><b>Ritsumeikan University</b>, Japan: vision-based drone navigation on an FPGA.</li>
             </ul>
           </div>
         </li>
       </ol>
     </section>
 
-    <!-- RESEARCH -->
-    <section id="research" class="section band">
-      <div class="section-head reveal wide">
-        <p class="kicker">02 — Research</p>
-        <h2>Agents that explore, plan and learn efficiently</h2>
-        <p>My PhD and postdoc focused on Bayesian optimisation, uncertainty-driven exploration in reinforcement learning,
-          and hierarchical planning for robots. A few highlights:</p>
+    <!-- EDUCATION strip -->
+    <section class="section edu-strip">
+      <div class="edu-grid">
+        <div class="edu reveal">
+          <span class="years">2015 – 2019</span>
+          <h3>PhD, Machine Learning</h3>
+          <p class="org">University of Sydney</p>
+          <p>Bayesian optimisation, planning and reinforcement learning. 10+ peer-reviewed papers (CoRL, AISTATS, ICRA, IROS).
+            <a href="https://scholar.google.com.au/citations?user=x0J0L2EAAAAJ&amp;hl=en" target="_blank" rel="noopener">Publications →</a></p>
+        </div>
+        <div class="edu reveal">
+          <span class="years">2011 – 2013</span>
+          <h3>MEng, Software Engineering</h3>
+          <p class="org">ENSEIRB-MATMECA, Bordeaux</p>
+          <p>Graduated 1st in class. Plus a Master's in Computer Science from Université de Bordeaux.</p>
+        </div>
+        <div class="edu reveal">
+          <span class="years">Toolbox</span>
+          <h3>Stack</h3>
+          <div class="chips"><span>Python</span><span>LLMs &amp; agents</span><span>LangChain</span><span>PyTorch</span><span>scikit-learn</span><span>Docker</span><span>AWS</span><span>Argo</span><span>PostgreSQL</span></div>
+        </div>
       </div>
-      <div class="papers">
-        <a class="paper reveal" href="https://github.com/PhilippeMorere/learning-to-plan-hierarchically" target="_blank" rel="noopener">
-          <span class="venue">IEEE RA-L · 2019</span>
-          <h3>Learning to Plan Hierarchically From Curriculum</h3>
-          <p>P. Morere, L. Ott, F. Ramos</p>
-          <span class="link">Code →</span>
-        </a>
-        <a class="paper reveal" href="https://github.com/PhilippeMorere/EMU-Q" target="_blank" rel="noopener">
-          <span class="venue">CoRL · 2018</span>
-          <h3>Bayesian RL for Goal-Only Rewards</h3>
-          <p>P. Morere, F. Ramos</p>
-          <span class="link">Code (EMU-Q) →</span>
-        </a>
-        <a class="paper reveal" href="https://scholar.google.com.au/citations?user=x0J0L2EAAAAJ&amp;hl=en" target="_blank" rel="noopener">
-          <span class="venue">ICRA · 2017</span>
-          <h3>Sequential Bayesian Optimization as a POMDP for Environment Monitoring with UAVs</h3>
-          <p>P. Morere, R. Marchant, F. Ramos</p>
-          <span class="link">Scholar →</span>
-        </a>
-      </div>
-      <p class="more-link reveal"><a href="https://scholar.google.com.au/citations?user=x0J0L2EAAAAJ&amp;hl=en" target="_blank" rel="noopener">See all publications on Google Scholar →</a></p>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects" class="section">
       <div class="section-head reveal wide">
-        <p class="kicker">03 — Projects</p>
-        <h2>Things I build for fun</h2>
+        <p class="kicker">05 — Projects</p>
+        <h2>Things I've built</h2>
+        <p>Side projects that run entirely in your browser.</p>
       </div>
       <div class="projects">
         <a class="project feature reveal" href="/stonks/">
@@ -252,103 +315,36 @@
           <p>Drag-and-drop programming for LEGO Mindstorms NXT on Apple Silicon Macs: Blockly, a native NXC compiler and nxt-python.</p>
           <span class="lang">Python · Blockly</span>
         </a>
-        <a class="project reveal" href="https://github.com/PhilippeMorere/EMU-Q" target="_blank" rel="noopener">
-          <span class="icon">🎯</span>
-          <h3>EMU-Q</h3>
-          <p>Exploring by Minimizing Uncertainty of Q values, from my CoRL 2018 paper.</p>
-          <span class="lang">Python · Research</span>
-        </a>
-        <a class="project reveal" href="https://github.com/PhilippeMorere/learning-to-plan-hierarchically" target="_blank" rel="noopener">
-          <span class="icon">🧭</span>
-          <h3>Hierarchical planning</h3>
-          <p>Code for the RA-L paper “Learning to Plan Hierarchically From Curriculum”.</p>
-          <span class="lang">Python · Research</span>
-        </a>
         <a class="project reveal" href="https://github.com/PhilippeMorere/RLTrader" target="_blank" rel="noopener">
           <span class="icon">📈</span>
           <h3>RLTrader</h3>
           <p>An agent that learns to trade using reinforcement learning methods.</p>
           <span class="lang">Python · RL</span>
         </a>
-        <a class="project reveal" href="https://github.com/PhilippeMorere/BasicReinforcementLearning" target="_blank" rel="noopener">
-          <span class="icon">🤖</span>
-          <h3>Basic RL</h3>
-          <p>A simple, readable Q-learning example — my most-starred repository.</p>
-          <span class="lang">Python · Tutorial</span>
-        </a>
-        <a class="project reveal" href="https://github.com/PhilippeMorere/PacmanRL" target="_blank" rel="noopener">
-          <span class="icon">👾</span>
-          <h3>PacmanRL</h3>
-          <p>Reinforcement learning algorithms learning to play Pacman.</p>
-          <span class="lang">Python · RL</span>
+        <a class="project reveal" href="https://github.com/PhilippeMorere/EMU-Q" target="_blank" rel="noopener">
+          <span class="icon">🎯</span>
+          <h3>EMU-Q</h3>
+          <p>Research code for uncertainty-driven exploration in RL, from my CoRL 2018 paper.</p>
+          <span class="lang">Python · Research</span>
         </a>
       </div>
-      <p class="more-link reveal">Also: a <a href="https://github.com/PhilippeMorere/Bomberman" target="_blank" rel="noopener">multiplayer Bomberman-like game</a> in C,
-        the Android game <a href="https://github.com/PhilippeMorere/Froggy" target="_blank" rel="noopener">Froggy</a>,
-        <a href="https://github.com/PhilippeMorere/divvy" target="_blank" rel="noopener">divvy</a> for distributing experiments, and more on
-        <a href="https://github.com/PhilippeMorere" target="_blank" rel="noopener">GitHub</a>.</p>
-    </section>
-
-    <!-- EDUCATION & SKILLS -->
-    <section id="education" class="section band">
-      <div class="section-head reveal wide">
-        <p class="kicker">04 — Education &amp; skills</p>
-        <h2>Theory and engineering</h2>
-      </div>
-      <div class="edu-grid">
-        <div class="edu reveal">
-          <span class="years">2015 – 2019</span>
-          <h3>PhD, Computer Science</h3>
-          <p class="org">University of Sydney</p>
-          <p>Thesis: <em>Bayesian Optimisation for Planning and Reinforcement Learning</em>. NICTA scholarship.</p>
-        </div>
-        <div class="edu reveal">
-          <span class="years">2011 – 2013</span>
-          <h3>Diplôme d'ingénieur (MEng)</h3>
-          <p class="org">ENSEIRB-MATMECA, Bordeaux</p>
-          <p>Telecommunications &amp; software engineering. Graduated 1st in class; Thales Management Prize.</p>
-        </div>
-        <div class="edu reveal">
-          <span class="years">2012 – 2013</span>
-          <h3>Master's, Computer Science</h3>
-          <p class="org">Université de Bordeaux</p>
-          <p>Plus an engineering summer program in robotics at Tohoku University, Japan (2013).</p>
-        </div>
-      </div>
-      <div class="skills reveal">
-        <div>
-          <h4>Machine learning</h4>
-          <div class="chips"><span>Reinforcement learning</span><span>Bayesian optimisation</span><span>LLMs &amp; NLP</span><span>Embeddings</span><span>Computer vision</span><span>Anomaly detection</span><span>Statistics</span><span>Robotics</span></div>
-        </div>
-        <div>
-          <h4>Engineering</h4>
-          <div class="chips"><span>Python</span><span>C++</span><span>Java</span><span>PyTorch</span><span>scikit-learn</span><span>LangChain</span><span>pandas</span><span>OpenCV</span><span>pytest</span></div>
-        </div>
-        <div>
-          <h4>Infra &amp; MLOps</h4>
-          <div class="chips"><span>Docker</span><span>Argo</span><span>AWS</span><span>PostgreSQL</span><span>MongoDB</span><span>Linux</span></div>
-        </div>
-        <div>
-          <h4>Languages</h4>
-          <div class="chips"><span>French · native</span><span>English · bilingual (IELTS 8.0)</span><span>Spanish · intermediate</span></div>
-        </div>
-      </div>
+      <p class="more-link reveal">More on <a href="https://github.com/PhilippeMorere" target="_blank" rel="noopener">GitHub</a>.</p>
     </section>
   </main>
 
   <!-- CONTACT -->
   <section id="contact" class="contact">
     <div class="contact-inner reveal">
-      <p class="kicker light">05 — Contact</p>
-      <h2>Let's talk.</h2>
-      <p>About data science leadership, ML in production, or reinforcement learning. The best way to reach me is by email or LinkedIn.</p>
+      <p class="kicker light">Contact</p>
+      <h2>Get in touch</h2>
       <div class="actions center">
         <a class="btn primary big" href="mailto:philippe.morere@gmail.com">philippe.morere@gmail.com</a>
         <a class="btn ghost big" href="https://www.linkedin.com/in/philippemorere" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn ghost big" href="https://github.com/PhilippeMorere" target="_blank" rel="noopener">GitHub</a>
       </div>
+      <p class="langs">English · Français · Español</p>
     </div>
-    <footer>© <span id="y">2026</span> Philippe Morere</footer>
+    <footer>© <span id="y">2026</span> Philippe Morere · AI automation &amp; machine learning</footer>
   </section>
 
   <script>
