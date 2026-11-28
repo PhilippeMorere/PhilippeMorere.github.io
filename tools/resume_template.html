@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{NAME}} — Résumé</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700&display=block" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 10mm 13mm 9mm; }
+  :root { --ink: #142033; --muted: #5b6676; --line: #e4ddd0; --accent: #d9532a; --navy: #0b1524; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; color: var(--ink); font: 400 8.5pt/1.38 "Inter", "Segoe UI", Arial, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  b, strong { font-weight: 600; }
+
+  header { display: grid; grid-template-columns: minmax(0, 1fr) 26mm; gap: 4mm; align-items: center;
+           padding-bottom: 3.5mm; border-bottom: 2px solid var(--navy); }
+  h1 { margin: 0; font: 600 23pt/1.05 "Fraunces", Georgia, serif; letter-spacing: -.01em; color: var(--navy); }
+  .title { margin: 1.2mm 0 1.8mm; font-weight: 600; font-size: 10pt; color: var(--accent); }
+  .contact { font-size: 7.5pt; white-space: nowrap; color: var(--muted); }
+  .contact .sep { margin: 0 .6mm; color: #b9b0a0; }
+  .photo { width: 26mm; height: 26mm; padding: .8mm; border: .5mm solid var(--accent); border-radius: 50%; }
+  .photo img { display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: 50% 20%; }
+  .intro { margin: 3mm 0 0; font-size: 8.9pt; line-height: 1.45; }
+
+  h2 { margin: 4mm 0 1.4mm; padding-bottom: 1mm; border-bottom: 1px solid var(--line);
+       font-size: 8.2pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+
+  .row { display: grid; grid-template-columns: 31mm 1fr; gap: 3.5mm; padding: 1.2mm 0; break-inside: avoid; }
+  .row + .row { border-top: 1px dashed #ece6da; }
+  .date { white-space: nowrap; font-weight: 600; font-size: 7.9pt; font-variant-numeric: tabular-nums; }
+  .sub { color: var(--muted); font-size: 7.8pt; }
+  h3 { margin: 0; font-size: 9.2pt; font-weight: 700; }
+  h3 .org { font-weight: 600; color: var(--accent); }
+  .what p { margin: .5mm 0 0; }
+  .what ul { margin: .5mm 0 0; padding-left: 4mm; }
+  .what li { margin: .1mm 0; }
+  .what li::marker { color: var(--accent); }
+
+  .skills { display: grid; grid-template-columns: 31mm 1fr; gap: 1mm 3.5mm; }
+  .skills dt { font-weight: 600; font-size: 7.9pt; }
+  .skills dd { margin: 0; }
+</style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>{{NAME}}</h1>
+      <div class="title">{{TITLE}}</div>
+      <div class="contact">{{CONTACT}}</div>
+    </div>
+    <div class="photo"><img src="{{PHOTO}}" alt=""></div>
+  </header>
+  <p class="intro">{{INTRO}}</p>
+
+  <h2>Experience</h2>
+  {{EXPERIENCE}}
+
+  <h2>Education</h2>
+  {{EDUCATION}}
+
+  <h2>Skills &amp; languages</h2>
+  <dl class="skills">
+    <dt>Expertise</dt><dd>{{EXPERTISE}}</dd>
+    <dt>Stack</dt><dd>{{STACK}}</dd>
+    <dt>Languages</dt><dd>{{LANGUAGES}}</dd>
+  </dl>
+</body>
+</html>
